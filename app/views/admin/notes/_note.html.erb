@@ -1,0 +1,28 @@
+<h4 class="d-inline-block">Title</h4>
+<div id="favorite_btn_<%= note.id %>" class="d-inline-block">
+  <i class="fas fa-heart"></i><%= note.favorites.count %>
+</div>
+<h4 class="px-2"><%= note.title %></h4>
+<h4>Tag</h4>
+<div class="d-flex justify-content-start">
+  <% note.tags.each_with_index do |tag, i| %>
+    <li style="list-style: none;">
+      <%= link_to notes_path(tag_search: true, keyword: tag.name) do %>
+        #<%= tag.name %>
+      <% end %>
+      <% unless note.tags.length == i + 1 %>,<% end %>
+    </li>
+  <% end %>
+</div>
+<h4>Content</h4>
+<textarea id="editor-preview" class="form-control w100 mb-1" rows="5">
+  <%= note.content %>
+</textarea>
+<h4>Comments</h4>
+<div id="comments">
+  <%= render "admin/note_comments/note_comments", note_comments: note.note_comments %>
+</div>
+<div id="notice" class="text-success"></div>
+<div id="error" class="text-danger"></div>
+<div>
+</div>

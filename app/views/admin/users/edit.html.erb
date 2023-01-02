@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="row">
+    
+    <h1 class="mx-auto">
+      <%= @user.name %>さんのユーザー情報編集
+    </h1>
+    
+    <div class="mx-auto col-8 mt-3">
+      <%# バリデーションエラー %>
+      <% if @user.errors.any? %>
+        <h2><%= @user.errors.count %> errors prohibited this obj from being saved:</h2>
+        <ul>
+          <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
+      
+      <%= form_with model: @user, url: admin_user_path do |f| %>
+      
+        <%= f.label :name, "ユーザー名" %><br>
+        <%= f.text_field :name, class: "form-control w100" %><br>
+        
+        <%= f.label :email, "メールアドレス" %><br>
+        <%= f.email_field :email, class: "form-control w100" %><br>
+        
+        <%= f.label :image, "プロフィール画像" %><br>
+        <%= image_tag @user.get_image(100, 100), class: "d-block mx-auto border" %>
+        <%= f.file_field :image, accept: "image/*" %><br><br>
+        
+        <%= f.radio_button :is_deleted, false %>
+        <%= f.label :is_deleted_false, "有効" %>
+        
+        <%= f.radio_button :is_deleted, true %>
+        <%= f.label :is_deleted_true, "退会" %><br><br>
+
+        <p>登録日時:<%= @user.created_at.strftime("%Y/%m/%d %H:%M:%S") %></p>
+        <p>更新日時:<%= @user.updated_at.strftime("%Y/%m/%d %H:%M:%S") %></p>
+        
+        <div class="text-center mt-1">
+          <%= f.submit "更新する", class: "btn btn-info w-50" %>
+        </div>
+        
+        <div class="text-center mt-4">
+          <%= link_to "ユーザー一覧", admin_users_path, class: "btn btn-secondary w-50" %>
+        </div>
+
+        <div class="text-center mt-1">
+          <%= link_to "ユーザー詳細", admin_user_path(@user.name), class: "btn btn-secondary w-50" %>
+        </div>
+        
+      <% end %>
+      
+    </div>
+  </div>
+</div>

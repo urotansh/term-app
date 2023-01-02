@@ -1,0 +1,32 @@
+<h4 class="d-inline-block">Title</h4>
+<div id="favorite_btn_<%= note.id %>" class="d-inline-block">
+  <%= render "public/favorites/favorite_btn", note: note %>
+</div>
+<h4 class="px-2"><%= note.title %></h4>
+<h4>Tag</h4>
+<div class="d-flex justify-content-start">
+  <% note.tags.each_with_index do |tag, i| %>
+    <li style="list-style: none;">
+      <%= link_to notes_path(tag_search: true, keyword: tag.name) do %>
+        #<%= tag.name %>
+      <% end %>
+      <% unless note.tags.length == i + 1 %>,<% end %>
+    </li>
+  <% end %>
+</div>
+<h4>Content</h4>
+<textarea id="editor-preview" class="form-control w100 mb-1" rows="5">
+  <%= note.content %>
+</textarea>
+<h4>Comments</h4>
+<div id="comments">
+  <%= render "public/note_comments/note_comments", note_comments: note.note_comments %>
+</div>
+<div id="notice" class="text-success"></div>
+<div id="error" class="text-danger"></div>
+<div>
+  <%= form_with model: [note, note_comment], local: false do |f| %>
+    <%= f.submit "コメント投稿", class: "btn btn-info"  %>
+    <%= f.text_area :comment, rows: "5", class: "form-control w100 mb-1" %>
+  <% end %>
+</div>

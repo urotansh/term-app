@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <div class="mx-auto col-lg-6">
+      
+      <h1>ユーザー情報編集</h1>
+      
+      <%# バリデーションエラー %>
+      <% if @user.errors.any? %>
+        <h2><%= @user.errors.count %> errors prohibited this obj from being saved:</h2>
+        <ul>
+          <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
+      
+        <%= form_with model: @user, url: settings_profile_users_path do |f| %>
+        
+          <%= f.label :name, 'ユーザー名'  %><br>
+          <%= f.text_field :name, class: "form-control w100" %><br>
+          
+          <%= f.label :image, "プロフィール画像" %><br>
+          <%= image_tag @user.get_image(100, 100), class: "d-block mx-auto border" %>
+          <%= f.file_field :image, accept: "image/*" %><br><br>
+        
+          <div class="text-center mt-5">
+            <%= f.submit "更新する", class: "btn btn-info w-50" %>
+          </div>
+        <% end %>
+  
+      <%# 退会確認画面へのリンク %>
+      <div class="text-center mt-5">
+        <%= link_to "マイページへ戻る", user_path(@user.name), class: "btn btn-success w-50" %>
+      </div>
+      
+      <%# 退会確認画面へのリンク %>
+      <div class="text-center mt-5">
+        <%= link_to "退会する", quit_users_path, class: "btn btn-danger w-50" %>
+      </div>
+    </div>
+  </div>
+</div>
