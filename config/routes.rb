@@ -59,6 +59,9 @@ Rails.application.routes.draw do
         get   "quit",             to: "users#quit"
         patch "withdraw",         to: "users#withdraw"
       end
+      
+      # フォロー機能
+      resource :relationships, only: [:create, :destroy]
     end
     
     
