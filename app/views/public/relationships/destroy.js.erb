@@ -1,0 +1,2 @@
+$("#followers").html("<%= @user.followers.count %>")
+$("#follow-btn").html("<%= j(link_to "フォローする", user_relationships_path(@user.name), method: :post, remote: true, class: "btn btn-secondary btn-sm d-block mx-auto", id: "follow") %>")

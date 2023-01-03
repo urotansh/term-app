@@ -55,4 +55,19 @@ class User < ApplicationRecord
     image.variant(resize_to_limit: [width, height]).processed
   end
   
+  # ユーザーをフォローする
+  def follow(other_user)
+    active_relationships.create(followed_id: other_user.id)
+  end
+
+  # ユーザーをアンフォローする
+  def unfollow(other_user)
+    active_relationships.find_by(followed_id: other_user.id).destroy
+  end
+
+  # 現在のユーザーがフォローしてたらtrueを返す
+  def following?(other_user)
+    following.include?(other_user)
+  end
+  
 end
