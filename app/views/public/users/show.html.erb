@@ -1,13 +1,31 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-2">
+    
+      <%# ユーザープロフィール %>
       <div class="shadow-lg p-1 shadow-lg rounded">
         <%= image_tag @user.get_image(80, 80), class: "d-block mx-auto border" %>
-        <p class="text-center"><%= @user.name %></p>
+        <p class="text-center m-0"><%= @user.name %></p>
+        
+        <%# フォロー機能 %>
+        <div class="d-flex justify-content-around border-top m-1">
+          <div>
+            <p class="m-0">フォロー</p>
+            <p class="m-0 text-center"><%= @user.following.count %></p>
+          </div>
+          <div>
+            <p class="m-0">フォロワー</p>
+            <p class="m-0 text-center"><%= @user.followers.count %></p>
+          </div>
+        </div>
+        
+        <%# ユーザー編集機能 %>
         <% if (@user == current_user) && !(@user.name == "guestuser") %>
           <%= link_to "ユーザー情報を編集する", settings_profile_users_path, class: "btn btn-secondary btn-sm d-block mx-auto" %>
         <% end %>
       </div>
+      
+      <%# 投稿機能 %>
       <div class="d-flex justify-content-around my-1">
         <% if @user == current_user %>
           <div id="new">
