@@ -62,6 +62,10 @@ Rails.application.routes.draw do
       
       # フォロー機能
       resource :relationships, only: [:create, :destroy]
+      member do
+        get "following", to: "users#following"
+        get "followers", to: "users#followers"
+      end
     end
     
     

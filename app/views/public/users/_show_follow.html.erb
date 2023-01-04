@@ -1,0 +1,49 @@
+<div class="col-12">
+  <h2><%= title %></h2>
+</div>
+
+<table class="table table-hover table-sm">
+  <thead>
+    <tr>
+      <th></th>
+      <th>ユーザー名</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody class="border-bottom">
+    <% users.each do |user| %>
+      <tr>
+        <td>
+          <div class="mb-3">
+            <% if admin_signed_in? %>
+              <%= link_to admin_user_path(user.name) do %>
+                <%= image_tag user.get_image(30, 30) %>
+              <% end %>
+            <% else %>
+              <%= link_to user_path(user.name) do %>
+                <%= image_tag user.get_image(30, 30) %>
+              <% end %>
+            <% end %>
+          </div>
+        </td>
+        <td><%= user.name %></td>
+        <td>
+          <%# フォローボタン %>
+          <div class="follow-btn-<%= user.name %>">
+            <% if !(current_user == user) %>
+              <% if current_user.following?(user) %>
+                <%= link_to "フォローを外す", user_relationships_path(user.name), method: :delete, remote: true, class: "btn btn-outline-secondary btn-sm d-block mx-auto" %>
+              <% else %>
+                <%= link_to "フォローする", user_relationships_path(user.name), method: :post, remote: true, class: "btn btn-secondary btn-sm d-block mx-auto" %>
+              <% end %>
+            <% end %>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+    
+  </tbody>
+</table>
+<div class="mx-auto">
+  <%= paginate users %>
+</div>

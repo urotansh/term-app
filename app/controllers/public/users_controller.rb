@@ -35,6 +35,21 @@ class Public::UsersController < ApplicationController
     redirect_to root_path, notice: "退会処理が完了しました。"
   end
   
+  def following
+    @title = "フォロー"
+    @user  = User.find_by(name: params[:name])
+    @users = @user.following.page(params[:page])
+    render 'show_follow'
+  end
+
+  def followers
+    @title = "フォロワー"
+    @user  = User.find_by(name: params[:name])
+    @users = @user.followers.page(params[:page])
+    render 'show_follow'
+  end
+  
+  
   private
   
   def user_params

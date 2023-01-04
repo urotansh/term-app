@@ -1,2 +1,7 @@
+<% if Rails.application.routes.recognize_path(request.referrer)[:name] == current_user.name %>
+$("#following").html("<%= current_user.following.count %>")
+<% elsif Rails.application.routes.recognize_path(request.referrer)[:name] == @user.name %>
 $("#followers").html("<%= @user.followers.count %>")
-$("#follow-btn").html("<%= j(link_to "フォローする", user_relationships_path(@user.name), method: :post, remote: true, class: "btn btn-secondary btn-sm d-block mx-auto", id: "follow") %>")
+<% else %>
+<% end %>
+$(".follow-btn-<%= @user.name %>").html("<%= j(link_to "フォローする", user_relationships_path(@user.name), method: :post, remote: true, class: "btn btn-secondary btn-sm d-block mx-auto", id: "follow") %>")
