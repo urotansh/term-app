@@ -9,8 +9,13 @@ class Public::NotesController < ApplicationController
   def create
     @note = Note.new(note_params)
     @note.user_id = current_user.id
-    tag_list = params[:note][:tag_name].split(',')
     
+    if params[:note][:tag_name].empty?
+      tag_list = Language.get_data(@note.title + ',' + @note.content)
+    else
+      tag_list = params[:note][:tag_name].split(',')
+    end
+      
     # TODO:バリデーション
     @note.save
     @note.save_tags(tag_list)
