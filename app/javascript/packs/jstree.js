@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import 'jstree/dist/themes/default/style.min.css';
-import 'jstree'
+import 'jstree';
 
 document.addEventListener('DOMContentLoaded', () => {
   $(document).on('turbolinks:load', function() {

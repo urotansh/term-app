@@ -1,7 +1,7 @@
-import 'easymde/dist/easymde.min.css'
-import EasyMDE from "easymde";
+import 'easymde/dist/easymde.min.css';
+import EasyMDE from 'easymde';
 import 'highlightjs/styles/monokai.css';
-import hljs from 'highlightjs'
+import hljs from 'highlightjs';
 
 'ajax:complete turbolinks:load'.split(' ').forEach((eventName)=>{
   document.addEventListener(eventName, (e)=>{
