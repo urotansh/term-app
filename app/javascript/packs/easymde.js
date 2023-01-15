@@ -4,8 +4,8 @@ import 'highlightjs/styles/monokai.css';
 import hljs from 'highlightjs';
 
 const initMDE = function() {
-  if (document.getElementById("comment_post_flg") != null){
-  return;
+  if (document.querySelector(".EasyMDEContainer") != null){
+    return;
   }
   if (document.getElementById("editor") != null){
   // textareaをMarkdownエディタにする

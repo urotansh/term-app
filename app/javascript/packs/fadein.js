@@ -6,3 +6,10 @@ import $ from 'jquery';
     $("#note").hide().fadeIn();
   });
 });
+
+// jsTreeをフェードインで表示
+'turbolinks:load'.split(' ').forEach((eventName)=>{
+  document.addEventListener(eventName, (e)=>{
+    $("#jstree").hide().fadeIn();
+  });
+});
