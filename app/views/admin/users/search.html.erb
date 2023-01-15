@@ -35,11 +35,11 @@
               <div class="mb-3">
                 <% if admin_signed_in? %>
                   <%= link_to admin_user_path(user.name) do %>
-                    <%= image_tag user.get_image(30, 30) %>
+                    <%= image_tag user.get_image(30, 30), size: "30x30" %>
                   <% end %>
                 <% else %>
                   <%= link_to user_path(user.name) do %>
-                    <%= image_tag user.get_image(30, 30) %>
+                    <%= image_tag user.get_image(30, 30), size: "30x30" %>
                   <% end %>
                 <% end %>
               </div>

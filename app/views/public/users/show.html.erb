@@ -4,7 +4,7 @@
     
       <%# ユーザープロフィール %>
       <div class="shadow-lg p-1 shadow-lg rounded">
-        <%= image_tag @user.get_image(80, 80), class: "d-block mx-auto border" %>
+        <%= image_tag @user.get_image(80, 80), size: "80x80", class: "d-block mx-auto border" %>
         <p class="text-center m-0"><%= @user.name %></p>
         
         <%# フォロー機能 %>

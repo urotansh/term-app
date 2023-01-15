@@ -10,9 +10,9 @@ import $ from 'jquery';
   });
 });
 
-// jsTreeをフェードインで表示
+// mainをフェードインで表示
 'turbolinks:load'.split(' ').forEach((eventName)=>{
   document.addEventListener(eventName, (e)=>{
-    $("#jstree").hide().fadeIn();
+    $("main").hide().fadeIn();
   });
 });

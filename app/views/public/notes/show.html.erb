@@ -6,12 +6,12 @@
       <div class="mb-3">
         <% if admin_signed_in? %>
           <%= link_to admin_user_path(@note.user.name) do %>
-            <%= image_tag @note.user.get_image(50, 50) %>
+            <%= image_tag @note.user.get_image(50, 50), size: "50x50" %>
             <%= @note.user.name %>
           <% end %>
         <% else %>
           <%= link_to user_path(@note.user.name) do %>
-            <%= image_tag @note.user.get_image(50, 50) %>
+            <%= image_tag @note.user.get_image(50, 50), size: "50x50" %>
             <%= @note.user.name %>
           <% end %>
         <% end %>
