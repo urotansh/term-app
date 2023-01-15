@@ -8,7 +8,7 @@ import hljs from 'highlightjs';
   document.addEventListener(eventName, (e)=>{
     if (document.getElementById("comment_post_flg") != null){
     return;
-    };
+    }
     if (document.getElementById("editor") != null){
     // textareaをMarkdownエディタにする
     const easymde = new EasyMDE({
@@ -31,7 +31,7 @@ import hljs from 'highlightjs';
       element: document.getElementById("editor"),
     });
     easymde.toggleSideBySide();
-    };
+    }
     if (document.getElementById("editor-preview") != null){
       // textareaをMarkdownエディタにする
       const easymdePreview = new EasyMDE({
@@ -53,6 +53,6 @@ import hljs from 'highlightjs';
         element: document.getElementById("editor-preview"),
       });
       easymdePreview.togglePreview();
-    };
+    }
   });
 });
