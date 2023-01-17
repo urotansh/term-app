@@ -12,14 +12,19 @@
 
   <body>
     <%= render "layouts/header" %>
-    <p class="text-success"><%= notice %></p>
-    <p class="text-danger"><%= alert %></p>
-  <main>
-    <%= yield %>
-  </main>
+    <% if flash[:notice] %>
+      <h5 class="alert-success text-center"><%= notice %></h5>
+    <% end %>
+    <% if flash[:alert] %>
+      <h5 class="alert-danger text-center"><%= alert %></h5>
+    <% end %>
+    
+    <main class="mt-2">
+      <%= yield %>
+    </main>
+    
+    <footer>
+      <%= render "layouts/footer" %>
+    </footer>
   </body>
-  
-  <footer>
-    <%= render "layouts/footer" %>
-  </footer>
 </html>

@@ -19,11 +19,11 @@
   <%= note.content %>
 </textarea>
 <h4>Comments</h4>
+<div id="notice" class="alert-success"></div>
+<div id="error" class="alert-danger"></div>
 <div id="comments">
   <%= render "public/note_comments/note_comments", note_comments: note.note_comments %>
 </div>
-<div id="notice" class="text-success"></div>
-<div id="error" class="text-danger"></div>
 <div>
   <%= form_with model: [note, note_comment], local: false do |f| %>
     <%= f.submit "コメント投稿", class: "btn btn-info"  %>

@@ -42,19 +42,19 @@
       </textarea>
       <h4>Comments</h4>
       <% if admin_signed_in? %>
+        <div id="notice" class="alert-success"></div>
+        <div id="error" class="alert-danger"></div>
         <div id="comments">
           <%= render "admin/note_comments/note_comments", note_comments: @note.note_comments %>
         </div>
-        <div id="notice" class="text-success"></div>
-        <div id="error" class="text-danger"></div>
         <div>
         </div>
       <% else %>
+        <div id="notice" class="alert-success"></div>
+        <div id="error" class="alert-danger"></div>
         <div id="comments">
           <%= render "public/note_comments/note_comments", note_comments: @note.note_comments %>
         </div>
-        <div id="notice" class="text-success"></div>
-        <div id="error" class="text-danger"></div>
         <div>
           <%= form_with model: [@note, @note_comment], local: false do |f| %>
             <%= f.submit "コメント投稿", class: "btn btn-info"  %>
@@ -67,14 +67,14 @@
 %>
       <h4>Comments</h4>
       <div id="comments">
+        <div id="notice" class="alert-success"></div>
+        <div id="error" class="alert-danger"></div>
         <% if admin_signed_in? %>
           <%= render "admin/note_comments/note_comments", note_comments: @note.note_comments %>
         <% else %>
           <%= render "public/note_comments/note_comments", note_comments: @note.note_comments %>
         <% end %>
       </div>
-      <div id="notice" class="text-success"></div>
-      <div id="error" class="text-danger"></div>
 <%
 =end
 %>

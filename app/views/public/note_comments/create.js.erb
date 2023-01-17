@@ -1,4 +1,4 @@
-$("#notice").html("<h3>コメント投稿が成功しました。<h3>");
+$("#notice").html("<h5>コメント投稿が成功しました。</h5>");
 $("#error").empty("");
 $("#comments").html("<%= j(render 'public/note_comments/note_comments', note_comments: @note.note_comments) %>");
 $("#note_comment_comment").val("");
