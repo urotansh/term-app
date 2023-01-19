@@ -12,14 +12,16 @@
 
   <body>
     <%= render "layouts/header" %>
-    <% if flash[:notice] %>
-      <h5 class="alert-success text-center"><%= notice %></h5>
-    <% end %>
-    <% if flash[:alert] %>
-      <h5 class="alert-danger text-center"><%= alert %></h5>
-    <% end %>
+    <div id="flash_box">
+      <% if flash[:notice] %>
+        <h5 class="alert-success text-center m-0" id="flash"><%= notice %></h5>
+      <% end %>
+      <% if flash[:alert] %>
+        <h5 class="alert-danger text-center m-0" id="flash"><%= alert %></h5>
+      <% end %>
+    </div>
     
-    <main class="mt-2">
+    <main>
       <%= yield %>
     </main>
     
