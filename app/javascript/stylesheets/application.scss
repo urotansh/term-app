@@ -21,3 +21,8 @@ footer {
   width: 100%;
   height: 20px;
 }
+
+$jstree_anchor_negative: 20px;
+.jstree-anchor {
+  width: calc(100% - #{$jstree_anchor_negative});
+}
