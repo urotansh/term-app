@@ -29,18 +29,14 @@
 
 <%# Comment %>
 <h4>Comment</h4>
-<% if admin_signed_in? %>
-  <div id="notice" class="alert-success"></div>
-  <div id="error" class="alert-danger"></div>
-  <div id="comments">
-    <%= render "admin/note_comments/note_comments", note_comments: note.note_comments %>
-  </div>
-<% else %>
-  <div id="notice" class="alert-success"></div>
-  <div id="error" class="alert-danger"></div>
-  <div id="comments">
-    <%= render "public/note_comments/note_comments", note_comments: note.note_comments %>
-  </div>
+<div id="notice" class="alert-success"></div>
+<div id="error" class="alert-danger"></div>
+<div id="comments">
+  <%= render "layouts/note_comments", note_comments: note.note_comments %>
+</div>
+
+<%# コメント投稿フォーム %>
+<% unless admin_signed_in? %>
   <div>
     <%= form_with model: [note, note_comment], local: false do |f| %>
       <%= f.submit "コメント投稿", class: "btn btn-info"  %>

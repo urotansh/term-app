@@ -1,6 +1,6 @@
 $("#notice").html("<h5>コメント投稿が成功しました。</h5>");
 $("#error").empty("");
-$("#comments").html("<%= j(render 'public/note_comments/note_comments', note_comments: @note.note_comments) %>");
+$("#comments").html("<%= j(render 'layouts/note_comments', note_comments: @note.note_comments) %>");
 $("#note_comment_comment").val("");
 if (document.getElementById("comment_post_flg") == null){$("#comments").append("<div id='comment_post_flg'></div>");};
 var element = document.querySelector("#comments > table > tbody > tr:last-child");

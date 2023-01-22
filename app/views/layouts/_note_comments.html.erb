@@ -12,9 +12,16 @@
       <tr>
         <td>
           <div class="mb-3">
-            <%= link_to user_path(note_comment.user.name) do %>
-              <%= image_tag note_comment.user.get_image(50, 50), size: "50x50" %>
-              <%= note_comment.user.name %>
+            <% if admin_signed_in? %>
+              <%= link_to admin_user_path(note_comment.user.name) do %>
+                <%= image_tag note_comment.user.get_image(50, 50), size: "50x50" %>
+                <%= note_comment.user.name %>
+              <% end %>
+            <% else %>
+              <%= link_to user_path(note_comment.user.name) do %>
+                <%= image_tag note_comment.user.get_image(50, 50), size: "50x50" %>
+                <%= note_comment.user.name %>
+              <% end %>
             <% end %>
           </div>
         </td>
@@ -23,7 +30,9 @@
         </td>
         <td><%= note_comment.updated_at.strftime("%Y/%m/%d %H:%M:%S") %></td>
         <td>
-          <% if note_comment.user == current_user %>
+          <% if admin_signed_in? %>
+            <%= link_to "コメント削除", admin_note_note_comment_path(note_comment.note, note_comment), method: :delete, remote: true, class: "btn btn-sm btn-danger" %>
+          <% elsif note_comment.user == current_user %>
             <%= link_to "コメント削除", note_note_comment_path(note_comment.note, note_comment), method: :delete, remote: true, class: "btn btn-sm btn-danger" %>
           <% end %>
         </td>
@@ -31,6 +40,7 @@
     <% end %>
   </tbody>
 </table>
+
 <%
 =begin
 %>

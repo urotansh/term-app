@@ -16,69 +16,10 @@
           <% end %>
         <% end %>
       </div>
-      <h4 class="d-inline-block">Title</h4>
-      <div id="favorite_btn_<%= @note.id %>" class="d-inline-block">
-        <% if admin_signed_in? %>
-          <i class="fas fa-heart"></i><%= @note.favorites.count %>
-        <% else %>
-          <%= render "public/favorites/favorite_btn", note: @note %>
-        <% end %>
-      </div>
-      <h4 class="px-2"><%= @note.title %></h4>
-      <h4>Tag</h4>
-      <div class="d-flex justify-content-start">
-        <% @note.tags.each_with_index do |tag, i| %>
-          <li style="list-style: none;">
-            <%= link_to notes_path(tag_search: true, keyword: tag.name) do %>
-              #<%= tag.name %>
-            <% end %>
-            <% unless @note.tags.length == i + 1 %>,<% end %>
-          </li>
-        <% end %>
-      </div>
-      <h4>Content</h4>
       
-      <%# WARNING: textareaタグの改行禁止 (EasyMDEでプレビューした時にnote.contentがコードブロックで修飾されてしまうため) %>
-      <textarea id="editor-preview" class="form-control w100 mb-1" rows="5"><%= @note.content %></textarea>
+      <%# 投稿詳細 %>
+      <%= render 'layouts/note', {note: @note, note_comment: @note_comment} %>
       
-      <h4>Comments</h4>
-      <% if admin_signed_in? %>
-        <div id="notice" class="alert-success"></div>
-        <div id="error" class="alert-danger"></div>
-        <div id="comments">
-          <%= render "admin/note_comments/note_comments", note_comments: @note.note_comments %>
-        </div>
-        <div>
-        </div>
-      <% else %>
-        <div id="notice" class="alert-success"></div>
-        <div id="error" class="alert-danger"></div>
-        <div id="comments">
-          <%= render "public/note_comments/note_comments", note_comments: @note.note_comments %>
-        </div>
-        <div>
-          <%= form_with model: [@note, @note_comment], local: false do |f| %>
-            <%= f.submit "コメント投稿", class: "btn btn-info"  %>
-            <%= f.text_area :comment, rows: "5", class: "form-control w100 mb-1" %>
-          <% end %>
-        </div>
-      <% end %>
-<%
-=begin
-%>
-      <h4>Comments</h4>
-      <div id="comments">
-        <div id="notice" class="alert-success"></div>
-        <div id="error" class="alert-danger"></div>
-        <% if admin_signed_in? %>
-          <%= render "admin/note_comments/note_comments", note_comments: @note.note_comments %>
-        <% else %>
-          <%= render "public/note_comments/note_comments", note_comments: @note.note_comments %>
-        <% end %>
-      </div>
-<%
-=end
-%>
     </div>
   </div>
 </div>
