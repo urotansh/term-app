@@ -1,6 +1,11 @@
 <% if obj.errors.any? %>
-  <div id="error_explanation" class="alert-error">
-    <h5><%= pluralize(obj.errors.count, "error") %> prohibited this obj from being saved:</h5>
+  <div id="error_explanation" class="alert-danger">
+    <h5>
+      <%= I18n.t("errors.messages.not_saved",
+                 count: obj.errors.count,
+                 resource: obj.class.model_name.human.downcase)
+       %>
+    </h5>
     <ul>
       <% obj.errors.full_messages.each do |message| %>
         <li><%= message %></li>
