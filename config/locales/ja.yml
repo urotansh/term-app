@@ -1,5 +1,14 @@
 ja:
   activerecord:
+    models:
+      note: "投稿"
+      note_comment: "コメント"
+    attributes:
+      note:
+        title: "タイトル"
+        content: "内容"
+      note_comment:
+        comment: "コメント"
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
