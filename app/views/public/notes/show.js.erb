@@ -1,4 +1,4 @@
 $("#note").html("<%= j(render 'layouts/note', {note: @note, note_comment: @note_comment}) %>");
 initMDE();
-$("#edit").html("<h2>投稿詳細</h2><%= j(link_to '投稿編集', edit_note_path(@note.id), class: "btn btn-success", remote: true, data: {"turbolinks" => false}) if @note.user == current_user %>");
+$("#edit").html("<%= j(link_to '投稿編集', edit_note_path(@note.id), class: "btn btn-success", remote: true, data: {"turbolinks" => false}) if @note.user == current_user %>");
 $("#destroy").html("<%= j(link_to '投稿削除', note_path(@note.id), class: "btn btn-danger", method: :delete, remote: true, data: {"turbolinks" => false}) if @note.user == current_user %>");
