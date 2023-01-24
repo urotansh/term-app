@@ -6,10 +6,12 @@ class Public::UsersController < ApplicationController
     # ユーザー情報
     @user = User.find_by(name: params[:name])
     
-    # ユーザー投稿情報
+    # ユーザー投稿一覧(サイドメニュー)
     @notes = @user.notes
-    @notes_index = @notes.page(params[:page])
     @favorite_notes = @user.favorite_notes
+    
+    # ユーザー投稿一覧(メインメニュー)
+    @notes_pagination = @notes.page(params[:page])
   end
 
   def edit

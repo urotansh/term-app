@@ -1,0 +1,46 @@
+<%# ページネーション %>
+<div class="d-flex justify-content-center">
+  <%= paginate notes, remote: true %>
+</div>
+
+<table class="table table-hover table-sm">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Tag</th>
+      <th>Content</th>
+      <th>コメント数</th>
+      <th>いいね数</th>
+      <th>登録日時</th>
+      <th>更新日時</th>
+      
+    </tr>
+  </thead>
+  <tbody class="border-bottom">
+    <% notes.each do |note| %>
+      <tr>
+        <td><%= link_to note.title, note_path(note), remote: true %></td>
+        <td>
+          <% note.tags.each_with_index do |tag, i| %>
+            <li style="list-style: none;">
+              <%= link_to notes_path(tag_search: true, keyword: tag.name) do %>
+                <%= tag.name %>
+              <% end %>
+            </li>
+          <% end %>
+        </td>
+        <td><%= note.content.slice(0..20) %></td>
+        <td><%= note.note_comments.count %>件</td>
+        <td><i class="fas fa-heart"></i><%= note.favorites.count %></td>
+        <td><%= note.created_at.strftime("%Y/%m/%d %H:%M:%S") %></td>
+        <td><%= note.updated_at.strftime("%Y/%m/%d %H:%M:%S") %></td>
+      </tr>
+    <% end %>
+    
+  </tbody>
+</table>
+
+<%# ページネーション %>
+<div class="d-flex justify-content-center">
+  <%= paginate notes, remote: true %>
+</div>
