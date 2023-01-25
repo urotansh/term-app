@@ -1,1 +1,1 @@
-$('#notes_pagination').html("<%= j(render 'layouts/notes', notes: @notes_pagination) %>");
+$("#note").html("<%= j(render 'layouts/notes', {title: @title, notes: @notes_pagination}) %>");

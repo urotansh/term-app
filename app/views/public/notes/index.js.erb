@@ -1,5 +1,1 @@
-<% if params[:favorite] %>
-  $("#note").html("<h2>いいね一覧</h2><%= j(render 'notes_ajax', notes: @notes_ajax) %>");
-<% else %>
-  $("#note").html("<h2>投稿一覧</h2><%= j(render 'notes_ajax', notes: @notes_ajax) %>");
-<% end %>
+$('#note').html("<%= j(render 'layouts/notes', {title: @title, notes: @notes_pagination}) %>");

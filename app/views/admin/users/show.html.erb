@@ -1,11 +1,16 @@
+<%= javascript_pack_tag "fadeout" %>
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-2">
+    
+      <%# ユーザープロフィール %>
       <div class="shadow-lg p-1 shadow-lg rounded">
         <%= image_tag @user.get_image(80, 80), size: "80x80", class: "d-block mx-auto border" %>
         <p class="text-center"><%= @user.name %></p>
           <%= link_to "ユーザー情報を編集する", edit_admin_user_path(@user.name), class: "btn btn-secondary btn-sm d-block mx-auto" %>
       </div>
+      
+      <%# 投稿機能 %>
       <div class="d-flex justify-content-around my-1">
         <div id="index">
           <%= link_to "投稿一覧", admin_notes_path(name: @user.name), class: "btn btn-info btn-sm", remote: true %>
@@ -14,6 +19,7 @@
           <%= link_to "いいね一覧", admin_notes_path(name: @user.name, favorite: true), class: "btn btn-success btn-sm", remote: true %>
         </div>
       </div>
+      
       <div id="jstree">
         <%# 投稿一覧 %>
         <ul>
@@ -43,14 +49,11 @@
         </ul>
       </div>
     </div>
+    
+    <%# メインメニュー %>
     <div class="offset-md-1 col-md-8">
       <div id="note">
-        <% if !@notes_pagination.nil? %>
-        <h2>投稿一覧</h2>
-          <div id="notes_pagination">
-            <%= render "layouts/notes", notes: @notes_pagination %>
-          </div>
-        <% end %>
+        <%= render "layouts/notes",  {title: @title, notes: @notes_pagination} %>
       </div>
     </div>
   </div>

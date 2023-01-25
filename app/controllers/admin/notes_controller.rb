@@ -2,18 +2,17 @@ class Admin::NotesController < ApplicationController
   def index
     # TODO:DRY
     if params[:favorite]
+      @title = "いいね一覧"
       @user = User.find_by(name: params[:name])
       @note_ids = @user.favorites.pluck(:note_id)
       @notes = Note.find(@note_ids)
-      # TODO:ページネーションのAjax化
-      @notes_ajax = @notes
       # where/findなどを使用するとArrayオブジェクトになるため、Kaminariオブジェクトを呼び出す
-      @notes = Kaminari.paginate_array(@notes).page(params[:page])
+      @notes_pagination = Kaminari.paginate_array(@notes).page(params[:page])
     else
+      @title = "投稿一覧"
       @user = User.find_by(name: params[:name])
-      @notes = @user.notes.page(params[:page])
-      # TODO:ページネーションのAjax化
-      @notes_ajax = @user.notes
+      @notes = @user.notes
+      @notes_pagination = @notes.page(params[:page])
     end
   end
 

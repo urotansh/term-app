@@ -55,7 +55,9 @@
           <%= link_to "いいね一覧", notes_path(name: @user.name, favorite: true), class: "btn btn-success btn-sm", remote: true %>
         </div>
       </div>
+      
       <div id="jstree">
+        <%# 投稿一覧 %>
         <ul>
           <li data-jstree='{ "icon" : "fa fa-folder", "opened" : true }'>
             <%= link_to "投稿一覧", notes_path(name: @user.name), remote: true %>
@@ -83,15 +85,11 @@
         </ul>
       </div>
     </div>
-
+    
+    <%# メインメニュー %>
     <div class="offset-md-1 col-md-8">
       <div id="note">
-        <% if !@notes_pagination.nil? %>
-          <h2>投稿一覧</h2>
-          <div id="notes_pagination">
-            <%= render "layouts/notes", notes: @notes_pagination %>
-          </div>
-        <% end %>
+        <%= render "layouts/notes",  {title: @title, notes: @notes_pagination} %>
       </div>
     </div>
   </div>
