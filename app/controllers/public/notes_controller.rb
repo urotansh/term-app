@@ -10,8 +10,15 @@ class Public::NotesController < ApplicationController
     @note = Note.new(note_params)
     @note.user_id = current_user.id
     
+    # タグが空白の場合
     if params[:note][:tag_name].empty?
-      tag_list = Language.get_data(@note.title + ',' + @note.content)
+      # 自然言語処理を行うプレーンテキスト情報を変数へ格納
+      plain_text = @note.title + ',' + @note.content
+      # プレーンテキストからコードブロックを除外
+      plain_text.gsub!(/```.*```/m, "")
+      # 重要度の高いエンティティを3つ抽出
+      tag_list = Language.get_data(plain_text)
+    # タグが空白ではない場合
     else
       tag_list = params[:note][:tag_name].split(',')
     end
