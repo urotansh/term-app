@@ -28,7 +28,7 @@
             <ul>
               <% @notes.each do |note| %>
                 <li data-jstree='{ "icon" : "far fa-file" }'>
-                  <%= link_to note.title, admin_note_path(note), remote: true %>
+                  <%= link_to note.title.truncate(20), admin_note_path(note), remote: true %>
                 </li>
               <% end %>
             </ul>
@@ -41,7 +41,7 @@
             <ul>
               <% @favorite_notes.each do |note| %>
                 <li data-jstree='{ "icon" : "far fa-file" }'>
-                  <%= link_to note.title, admin_note_path(note), remote: true %>
+                  <%= link_to note.title.truncate(20), admin_note_path(note), remote: true %>
                 </li>
               <% end %>
             </ul>
@@ -53,7 +53,7 @@
     <%# メインメニュー %>
     <div class="offset-md-1 col-md-8">
       <div id="note">
-        <%= render "layouts/notes",  {title: @title, notes: @notes_pagination} %>
+        <%= render "layouts/notes", {title: @title, notes: @notes_pagination} %>
       </div>
     </div>
   </div>

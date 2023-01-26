@@ -22,17 +22,17 @@
   <tbody class="border-bottom">
     <% notes.each do |note| %>
       <tr>
-        <td><%= link_to note.title, note_path(note), remote: true %></td>
+        <td><%= link_to note.title.truncate(20), note_path(note), remote: true %></td>
         <td>
           <% note.tags.each_with_index do |tag, i| %>
             <li style="list-style: none;">
               <%= link_to notes_path(tag_search: true, keyword: tag.name) do %>
-                <%= tag.name %>
+                <%= tag.name.truncate(20) %>
               <% end %>
             </li>
           <% end %>
         </td>
-        <td><%= note.content.slice(0..20) %></td>
+        <td><%= note.content.truncate(20) %></td>
         <td><%= note.note_comments.count %>件</td>
         <td><i class="fas fa-heart"></i><%= note.favorites.count %></td>
         <td><%= note.created_at.strftime("%Y/%m/%d %H:%M:%S") %></td>
