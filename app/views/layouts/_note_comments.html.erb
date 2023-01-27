@@ -1,3 +1,8 @@
+<%# ページネーション %>
+<div class="d-flex justify-content-center">
+  <%= paginate note_comments, remote: true %>
+</div>
+
 <table class="table table-hover table-sm">
   <thead>
     <tr>
@@ -8,7 +13,7 @@
     </tr>
   </thead>
   <tbody>
-    <% note_comments.order(updated_at: :desc).each do |note_comment| %>
+    <% note_comments.each do |note_comment| %>
       <tr>
         <td>
           <div class="mb-3">
@@ -41,13 +46,7 @@
   </tbody>
 </table>
 
-<%
-=begin
-%>
-<%# TODO:ページネーションのAjax化 %>
+<%# ページネーション %>
 <div class="d-flex justify-content-center">
-  <%= paginate note_comments %>
+  <%= paginate note_comments, remote: true %>
 </div>
-<%
-=end
-%>
