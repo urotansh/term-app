@@ -23,7 +23,6 @@ class Admin::NotesController < ApplicationController
     # コメント機能
     @note_comment = NoteComment.new
     @note_comments = @note.note_comments.order(updated_at: :desc)
-    # @noteのレコードは1件のため、Kaminariオブジェクトの呼び出しは不要
     @note_comments_pagination = @note_comments.page(params[:page]).per(5)
   end
   
