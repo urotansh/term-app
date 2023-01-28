@@ -24,7 +24,11 @@ Rails.application.routes.draw do
     # 投稿管理機能
     resources :notes, only: [:index, :show, :destroy] do
       # コメント管理機能
-      resources :note_comments, only: [:destroy]
+      resources :note_comments, only: [:destroy] do
+        collection do
+          get ":id", to: "note_comments#index"
+        end
+      end
     end
     
     # ユーザー管理機能
@@ -46,7 +50,11 @@ Rails.application.routes.draw do
     # 投稿機能
     resources :notes do
       # コメント機能
-      resources :note_comments, only: [:create, :destroy]
+      resources :note_comments, only: [:create, :destroy, :index] do
+        collection do
+          get ":id", to: "note_comments#index"
+        end
+      end
       # いいね機能
       resource :favorites, only: [:create, :destroy]
     end

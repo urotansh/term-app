@@ -1,6 +1,6 @@
 <%# ページネーション %>
 <div class="d-flex justify-content-center">
-  <%= paginate note_comments, remote: true %>
+  <%= paginate note_comments, remote: true, params: {note_comment: nil} %>
 </div>
 
 <table class="table table-hover table-sm">

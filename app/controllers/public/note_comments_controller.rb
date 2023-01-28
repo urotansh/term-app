@@ -31,6 +31,13 @@ class Public::NoteCommentsController < ApplicationController
     end
   end
   
+  def index
+    # コメント一覧
+    @note = Note.find(params[:note_id])
+    @note_comments = @note.note_comments.order(updated_at: :desc)
+    @note_comments_pagination = @note_comments.page(params[:page]).per(5)
+  end
+  
   private
   
   def note_comment_params
