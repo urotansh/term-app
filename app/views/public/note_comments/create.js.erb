@@ -3,5 +3,6 @@ $("#error").empty("");
 $("#comments").html("<%= j(render 'layouts/note_comments', note_comments: @note_comments_pagination) %>");
 $("#note_comment_comment").val("");
 if (document.getElementById("comment_post_flg") == null){$("#comments").append("<div id='comment_post_flg'></div>");};
-var element = document.querySelector("#comments > table > tbody > tr:last-child");
+var element = document.querySelector("#comments > table > tbody > tr:first-child");
+element.style.backgroundColor = "#FFFFDD"
 element.scrollIntoView({block: "center", behavior: "smooth"});
