@@ -3,6 +3,10 @@
   <%= paginate note_comments, remote: true, params: {note_comment: nil} %>
 </div>
 
+<%# フラッシュメッセージ %>
+<div id="notice" class="alert-success"></div>
+<div id="error" class="alert-danger"></div>
+
 <table class="table table-hover table-sm">
   <thead>
     <tr>

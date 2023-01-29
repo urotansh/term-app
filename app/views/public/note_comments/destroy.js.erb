@@ -1,3 +1,2 @@
-$("#notice").html("<h5>コメントを削除しました。</h5>");
-$("#error").empty("");
 $("#comments").html("<%= j(render 'layouts/note_comments', note_comments: @note_comments_pagination) %>");
+$("#notice").html("<h5 class='m-0'>コメントを削除しました。</h5>");

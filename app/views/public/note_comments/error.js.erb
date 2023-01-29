@@ -1,3 +1,3 @@
-if (document.getElementById("comment_post_flg") == null){$("#comments").append("<div id='comment_post_flg'></div>");};
 $("#error").html("<%= j(render 'layouts/errors', obj: @note_comment) %>");
-$("#notice").empty()
+if (document.getElementById("comment_post_flg") == null){$("#comments").append("<div id='comment_post_flg'></div>");}
+$("#notice").empty();
