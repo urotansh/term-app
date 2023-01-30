@@ -25,6 +25,10 @@ class Public::NoteCommentsController < ApplicationController
       @note = Note.find(params[:note_id])
       @note_comments = @note.note_comments.order(updated_at: :desc)
       @note_comments_pagination = @note_comments.page(params[:page]).per(5)
+      
+      # ページャの更新判定（コメント削除時にページ数が減った場合、ページャを更新する）
+      @update_pager_flg = update_pager?(@note_comments)
+      
       render "destroy"
     else
       render "error"
@@ -42,6 +46,16 @@ class Public::NoteCommentsController < ApplicationController
   
   def note_comment_params
     params.require(:note_comment).permit(:comment)
+  end
+  
+  def update_pager?(note_comments)
+    # コメント件数が1ページへの最大表示件数で割り切れる場合、ページャを更新する
+    # if note_comments.size % Kaminari.config.default_per_page == 0
+    if note_comments.size % 5 == 0
+      return true
+    else
+      return false
+    end
   end
   
 end

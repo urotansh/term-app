@@ -1,2 +1,5 @@
-$("#comments").html("<%= j(render 'layouts/note_comments', note_comments: @note_comments_pagination) %>");
+$("#comment_<%= @note_comment.id %>").remove();
 $("#notice").html("<h5 class='m-0'>コメントを削除しました。</h5>");
+if (<%= @update_pager_flg %>) {
+  $(".pager").html("<%= j(paginate @note_comments_pagination, remote: true, params: {note_comment: nil}) %>");
+}

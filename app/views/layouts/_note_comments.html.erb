@@ -1,5 +1,5 @@
-<%# ページネーション %>
-<div class="d-flex justify-content-center">
+<%# ページャ %>
+<div class="d-flex justify-content-center pager">
   <%= paginate note_comments, remote: true, params: {note_comment: nil} %>
 </div>
 
@@ -18,7 +18,7 @@
   </thead>
   <tbody>
     <% note_comments.each do |note_comment| %>
-      <tr>
+      <tr id="comment_<%= note_comment.id %>">
         <td>
           <div class="mb-3">
             <% if admin_signed_in? %>
@@ -50,7 +50,7 @@
   </tbody>
 </table>
 
-<%# ページネーション %>
-<div class="d-flex justify-content-center">
-  <%= paginate note_comments, remote: true %>
+<%# ページャ %>
+<div class="d-flex justify-content-center pager">
+  <%= paginate note_comments, remote: true, params: {note_comment: nil} %>
 </div>
