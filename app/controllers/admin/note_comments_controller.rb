@@ -23,6 +23,8 @@ class Admin::NoteCommentsController < ApplicationController
     @note_comments_pagination = @note_comments.page(params[:page]).per(5)
   end
   
+  private
+  
   def update_pager?(note_comments)
     # コメント件数が1ページへの最大表示件数で割り切れる場合、ページャを更新する
     # if note_comments.size % Kaminari.config.default_per_page == 0
