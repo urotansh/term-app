@@ -44,9 +44,9 @@
 <%# コメント投稿フォーム %>
 <% unless admin_signed_in? %>
   <div>
-    <%= form_with model: [note, note_comment], local: false do |f| %>
-      <%= f.submit "コメント投稿", class: "btn btn-info"  %>
-      <%= f.text_area :comment, rows: "5", class: "form-control w100 mb-1" %>
+    <%= form_with model: [note, note_comment], local: false, id: "comment_form" do |f| %>
+      <%= f.submit "コメント投稿", class: "btn btn-info", id: "comment_submit"  %>
+      <%= f.text_area :comment, rows: "5", class: "form-control w100 mb-1", placeholder: "⌘ Enter (Mac) または Ctrl Enter (Windows) で送信" %>
     <% end %>
   </div>
 <% end %>

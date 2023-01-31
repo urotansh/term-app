@@ -20,3 +20,4 @@ import "@fortawesome/fontawesome-free/js/all";
 import "./jstree";
 import "./easymde";
 import "./fadein";
+import "./ajax_submit";
