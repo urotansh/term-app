@@ -1,8 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-12 mx-auto">
-      <h2>投稿詳細</h2>
-      <h4>投稿ユーザー</h4>
+      <h2>投稿ユーザー</h2>
       <div class="mb-3">
         <% if admin_signed_in? %>
           <%= link_to admin_user_path(@note.user.name) do %>
@@ -18,7 +17,7 @@
       </div>
       
       <%# 投稿詳細 %>
-      <%= render 'layouts/note', {note: @note, note_comment: @note_comment} %>
+      <%= render 'layouts/note', {note: @note, note_comment: @note_comment, note_comments: @note_comments_pagination} %>
       
     </div>
   </div>
