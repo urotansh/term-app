@@ -35,7 +35,7 @@
           </div>
         </td>
         <td>
-          <%= raw(h(note_comment.comment).gsub(/\R/, "<br>")) %>
+          <%= nl2br(note_comment.comment) %>
         </td>
         <td><%= note_comment.updated_at.strftime("%Y/%m/%d %H:%M:%S") %></td>
         <td>
