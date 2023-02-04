@@ -17,8 +17,9 @@
       </div>
       
       <%# 投稿詳細 %>
-      <%= render 'layouts/note', {note: @note, note_comment: @note_comment, note_comments: @note_comments_pagination} %>
-      
+      <div id="note">
+        <%= render 'layouts/note', {note: @note, note_comment: @note_comment, note_comments: @note_comments_pagination} %>
+      </div>
     </div>
   </div>
 </div>

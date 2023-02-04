@@ -1,10 +1,18 @@
 <h2>投稿詳細</h2>
 
 <%# 投稿編集/投稿削除ボタン %>
-<div class="d-flex justify-content-between align-items-end">
-  <div id="edit"></div>
-  <div id="destroy"></div>
-</div>
+<% if admin_signed_in? && (request.format == "text/javascript") %>
+  <div class="d-flex justify-content-between">
+    <%# TODO: 管理者ユーザーで投稿編集可能にする場合はeditアクションを追加 %>
+    <%#= link_to "投稿編集", admin_edit_note_path(note.id), class: "btn btn-success", remote: true %>
+    <%= link_to "投稿削除", admin_note_path(note.id), class: "btn btn-danger", method: :delete, remote: true %>
+  </div>
+<% elsif (@note.user == current_user) && (request.format == "text/javascript") %>
+  <div class="d-flex justify-content-between">
+    <%= link_to "投稿編集", edit_note_path(note.id), class: "btn btn-success", remote: true %>
+    <%= link_to "投稿削除", note_path(note.id), class: "btn btn-danger", method: :delete, remote: true %>
+  </div>
+<% end %>
 
 <%# Title %>
 <h4 class="d-inline-block">Title</h4>

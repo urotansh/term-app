@@ -1,5 +1,2 @@
 $("#note").html("<%= j(render 'layouts/note', {note: @note, note_comment: @note_comment, note_comments: @note_comments_pagination}) %>");
 initMDE();
-<%# 管理者ユーザーで投稿編集可能にする場合はeditアクションを追加 %>
-<%# $("#edit").html(""); %>
-$("#destroy").html("<%= j(link_to '投稿削除', admin_note_path(@note.id), class: "btn btn-danger", method: :delete, remote: true, data: {"turbolinks" => false}) %>");
