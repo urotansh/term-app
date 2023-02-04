@@ -1,13 +1,13 @@
 <h2>投稿詳細</h2>
 
 <%# 投稿編集/投稿削除ボタン %>
-<% if admin_signed_in? && (request.format == "text/javascript") %>
+<% if admin_signed_in? %>
   <div class="d-flex justify-content-between">
     <%# TODO: 管理者ユーザーで投稿編集可能にする場合はeditアクションを追加 %>
     <%#= link_to "投稿編集", admin_edit_note_path(note.id), class: "btn btn-success", remote: true %>
     <%= link_to "投稿削除", admin_note_path(note.id), class: "btn btn-danger", method: :delete, remote: true %>
   </div>
-<% elsif (@note.user == current_user) && (request.format == "text/javascript") %>
+<% elsif (@note.user == current_user) %>
   <div class="d-flex justify-content-between">
     <%= link_to "投稿編集", edit_note_path(note.id), class: "btn btn-success", remote: true %>
     <%= link_to "投稿削除", note_path(note.id), class: "btn btn-danger", method: :delete, remote: true %>

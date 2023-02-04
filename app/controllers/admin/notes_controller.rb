@@ -30,7 +30,16 @@ class Admin::NotesController < ApplicationController
     @note = Note.find(params[:id])
     # TODO:バリデーション
     @note.destroy
-    redirect_to admin_user_path(@note.user.name), notice: "投稿を削除しました。"
+    
+    # 遷移元URLを取得
+    path = Rails.application.routes.recognize_path(request.referer)
+    # ユーザーマイページからの削除の場合、ユーザーマイページへリダイレクト
+    if path[:controller].split("/")[1] == "users"
+      redirect_to admin_user_path(@note.user.name), notice: "投稿を削除しました。"
+    # 検索画面からの削除の場合、検索一覧画面へリダイレクト
+    elsif path[:controller].split("/")[1] == "notes"
+      redirect_to session[:notes_show_previous_url], notice: "投稿を削除しました。"
+    end
   end
   
 end

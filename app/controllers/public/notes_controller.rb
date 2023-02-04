@@ -69,6 +69,9 @@ class Public::NotesController < ApplicationController
     @note_comment = NoteComment.new
     @note_comments = @note.note_comments.order(updated_at: :desc)
     @note_comments_pagination = @note_comments.page(params[:page]).per(5)
+
+    # 遷移元URL(検索画面 or ユーザーマイページ)をセッションに保存
+    session[:notes_show_previous_url] = request.referer
   end
 
   def edit
@@ -79,14 +82,33 @@ class Public::NotesController < ApplicationController
     @note = current_user.notes.find(params[:id])
     # TODO:バリデーション
     @note.update(note_params)
-    redirect_to user_path(current_user.name), notice: "投稿内容を更新しました。"
+    
+    # 遷移元URLを取得
+    path = Rails.application.routes.recognize_path(request.referer)
+    # ユーザーマイページからの更新の場合、ユーザーマイページへリダイレクト
+    # TODO: 投稿一覧（サイドメニュー）へのタイトル更新反映、投稿詳細画面表示（非同期）
+    if path[:controller].split("/")[1] == "users"
+      redirect_to user_path(current_user.name), notice: "投稿内容を更新しました。"
+    # 検索画面からの更新の場合、投稿詳細画面へリダイレクト
+    elsif path[:controller].split("/")[1] == "notes"
+      redirect_to note_path(@note), notice: "投稿内容を更新しました。"
+    end
   end
   
   def destroy
     @note = current_user.notes.find(params[:id])
     # TODO:バリデーション
     @note.destroy
-    redirect_to user_path(current_user.name), notice: "投稿を削除しました。"
+        
+    # 遷移元URLを取得
+    path = Rails.application.routes.recognize_path(request.referer)
+    # ユーザーマイページからの削除の場合、ユーザーマイページへリダイレクト
+    if path[:controller].split("/")[1] == "users"
+      redirect_to user_path(current_user.name), notice: "投稿を削除しました。"
+    # 検索画面からの削除の場合、検索一覧画面へリダイレクト
+    elsif path[:controller].split("/")[1] == "notes"
+      redirect_to session[:notes_show_previous_url], notice: "投稿を削除しました。"
+    end
   end
   
   private
