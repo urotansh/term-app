@@ -11,7 +11,7 @@ class Public::NotesController < ApplicationController
     @note.user_id = current_user.id
     
     # タグが空白の場合
-    if params[:note][:tag_name].empty?
+    if params[:note][:tag].empty?
       # 自然言語処理を行うプレーンテキスト情報を変数へ格納
       plain_text = @note.title + ',' + @note.content
       # プレーンテキストからコードブロックを除外
@@ -20,7 +20,7 @@ class Public::NotesController < ApplicationController
       tag_list = Language.get_data(plain_text)
     # タグが空白ではない場合
     else
-      tag_list = params[:note][:tag_name].split(',')
+      tag_list = params[:note][:tag].split(',')
     end
       
     # TODO:バリデーション

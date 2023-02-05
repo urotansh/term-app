@@ -3,10 +3,12 @@ ja:
     models:
       note: "投稿"
       note_comment: "コメント"
+      tag: "タグ"
     attributes:
       note:
         title: "タイトル"
         content: "内容"
+        tag: "タグ"
       note_comment:
         comment: "コメント"
     errors:
