@@ -199,3 +199,8 @@ ja:
       previous: "‹"
       next: "›"
       truncate: "…"
+  note:
+    title: "タイトル"
+    content: "内容"
+    tag: "タグ"
+    comment: "コメント"
