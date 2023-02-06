@@ -204,3 +204,6 @@ ja:
     content: "内容"
     tag: "タグ"
     comment: "コメント"
+    favorite: "いいね"
+    created_at: "登録日時"
+    updated_at: "更新日時"
