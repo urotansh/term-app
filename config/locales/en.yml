@@ -39,3 +39,7 @@ en:
     favorite: "Favorite"
     created_at: "Created"
     updated_at: "Updated"
+  note_comment:
+    zero: "no comment"
+    one: "%{count} comment"
+    other: "%{count} comments"
