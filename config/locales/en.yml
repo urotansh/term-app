@@ -43,3 +43,7 @@ en:
     zero: "no comment"
     one: "%{count} comment"
     other: "%{count} comments"
+  favorite:
+    zero: "no favorite"
+    one: "%{count} favorite"
+    other: "%{count} favorites"
