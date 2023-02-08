@@ -1,8 +1,6 @@
-<% if note.id.nil? %>
-  <h2>新規投稿</h2>
-<% else %>
-  <h2>投稿編集</h2>
-<% end %>
+<%# タイトル（新規投稿/投稿編集） %>
+<h2><%= title %></h2>
+
 <%= form_with model: note do |f| %>
   <%= f.submit class: "btn btn-primary mb-1"%>
   <h4><%= f.label :title %></h4>
