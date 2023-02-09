@@ -47,6 +47,7 @@ en:
     created_at: "Created"
     updated_at: "Updated"
     new: "New Post"
+    edit: "Editing Post"
   note_comment:
     zero: "no comment"
     one: "%{count} comment"

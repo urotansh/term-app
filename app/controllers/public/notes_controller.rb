@@ -3,7 +3,7 @@ class Public::NotesController < ApplicationController
   before_action :is_matching_login_user, only: [:edit, :update]
   
   def new
-    @title =  I18n.t("note.new")
+    @title = I18n.t("note.new")
     @note = Note.new
   end
   
@@ -77,7 +77,7 @@ class Public::NotesController < ApplicationController
   end
 
   def edit
-    @title =  "投稿編集"
+    @title = I18n.t("note.edit")
     @note = current_user.notes.find(params[:id])
   end
   

@@ -208,6 +208,7 @@ ja:
     created_at: "登録日時"
     updated_at: "更新日時"
     new: "新規投稿"
+    edit: "投稿編集"
   note_comment:
     zero: "%{count}件"
     one: "%{count}件"
