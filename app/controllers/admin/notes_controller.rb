@@ -18,7 +18,7 @@ class Admin::NotesController < ApplicationController
 
   def show
     # 投稿情報
-    @title = "投稿詳細"
+    @title = I18n.t("note.show")
     @note = Note.find(params[:id])
     
     # コメント機能

@@ -48,6 +48,7 @@ en:
     updated_at: "Updated"
     new: "New Post"
     edit: "Editing Post"
+    show: "Post Details"
   note_comment:
     zero: "no comment"
     one: "%{count} comment"
