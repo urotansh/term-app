@@ -3,7 +3,7 @@ class Public::NotesController < ApplicationController
   before_action :is_matching_login_user, only: [:edit, :update]
   
   def new
-    @title =  "新規投稿"
+    @title =  I18n.t("note.new")
     @note = Note.new
   end
   
