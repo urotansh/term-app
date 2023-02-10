@@ -45,7 +45,7 @@
       <div class="d-flex justify-content-around my-1">
         <% if @user == current_user %>
           <div id="new">
-            <%= link_to "新規投稿", new_note_path, class: "btn btn-primary btn-sm", remote: true %>
+            <%= link_to I18n.t("note.new"), new_note_path, class: "btn btn-primary btn-sm", remote: true %>
           </div>
         <% end %>
         <div id="index">
