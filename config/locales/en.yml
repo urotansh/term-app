@@ -49,6 +49,7 @@ en:
     new: "New Post"
     edit: "Editing Post"
     show: "Post Details"
+    index: "Posts"
   note_comment:
     zero: "no comment"
     one: "%{count} comment"

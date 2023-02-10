@@ -9,7 +9,7 @@ class Admin::NotesController < ApplicationController
       # where/findなどを使用するとArrayオブジェクトになるため、Kaminariオブジェクトを呼び出す
       @notes_pagination = Kaminari.paginate_array(@notes).page(params[:page])
     else
-      @title = "投稿一覧"
+      @title = I18n.t("note.index")
       @user = User.find_by(name: params[:name])
       @notes = @user.notes
       @notes_pagination = @notes.page(params[:page])

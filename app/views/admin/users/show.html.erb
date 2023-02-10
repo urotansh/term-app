@@ -12,9 +12,11 @@
       
       <%# 投稿機能 %>
       <div class="d-flex justify-content-around my-1">
+        <%# 投稿一覧ボタン %>
         <div id="index">
-          <%= link_to "投稿一覧", admin_notes_path(name: @user.name), class: "btn btn-info btn-sm", remote: true %>
+          <%= link_to I18n.t("note.index"), admin_notes_path(name: @user.name), class: "btn btn-info btn-sm", remote: true %>
         </div>
+        <%# いいね一覧ボタン %>
         <div id="favorite_index">
           <%= link_to "いいね一覧", admin_notes_path(name: @user.name, favorite: true), class: "btn btn-success btn-sm", remote: true %>
         </div>
@@ -24,7 +26,7 @@
         <%# 投稿一覧 %>
         <ul>
           <li data-jstree='{ "icon" : "fa fa-folder", "opened" : true }'>
-            <%= link_to "投稿一覧", admin_notes_path(name: @user.name), remote: true %>
+            <%= link_to I18n.t("note.index"), admin_notes_path(name: @user.name), remote: true %>
             <ul>
               <% @notes.each do |note| %>
                 <li data-jstree='{ "icon" : "far fa-file" }'>

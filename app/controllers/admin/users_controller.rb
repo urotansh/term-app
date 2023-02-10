@@ -29,7 +29,7 @@ class Admin::UsersController < ApplicationController
     @favorite_notes = @user.favorite_notes
     
     # ユーザー投稿一覧(メインメニュー)
-    @title = "投稿一覧"
+    @title = I18n.t("note.index")
     @notes_pagination = @notes.page(params[:page])
   end
 

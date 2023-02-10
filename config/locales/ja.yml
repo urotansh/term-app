@@ -210,6 +210,7 @@ ja:
     new: "新規投稿"
     edit: "投稿編集"
     show: "投稿詳細"
+    index: "投稿一覧"
   note_comment:
     zero: "%{count}件"
     one: "%{count}件"
