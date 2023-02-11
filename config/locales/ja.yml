@@ -220,3 +220,5 @@ ja:
     one: "%{count}件"
     other: "%{count}件"
     index: "いいね一覧"
+  user:
+    edit: "プロフィール編集"

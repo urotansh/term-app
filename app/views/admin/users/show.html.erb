@@ -7,7 +7,7 @@
       <div class="shadow-lg p-1 shadow-lg rounded">
         <%= image_tag @user.get_image(80, 80), size: "80x80", class: "d-block mx-auto border" %>
         <p class="text-center"><%= @user.name %></p>
-          <%= link_to "ユーザー情報を編集する", edit_admin_user_path(@user.name), class: "btn btn-secondary btn-sm d-block mx-auto" %>
+          <%= link_to I18n.t("user.edit"), edit_admin_user_path(@user.name), class: "btn btn-secondary btn-sm d-block mx-auto" %>
       </div>
       
       <%# 投稿機能 %>

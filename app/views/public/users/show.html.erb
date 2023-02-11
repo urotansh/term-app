@@ -27,7 +27,7 @@
         <%# ユーザー編集ボタン %>
         <% if @user == current_user %>
           <% unless @user.name == "guestuser" %>
-            <%= link_to "ユーザー情報を編集する", settings_profile_users_path, class: "btn btn-secondary btn-sm d-block mx-auto" %>
+            <%= link_to I18n.t("user.edit"), settings_profile_users_path, class: "btn btn-secondary btn-sm d-block mx-auto" %>
           <% end %>
         <% else %>
           <%# フォローボタン %>
