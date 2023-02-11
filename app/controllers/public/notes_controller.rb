@@ -47,7 +47,7 @@ class Public::NotesController < ApplicationController
     else
       # TODO:DRY
       if params[:favorite]
-        @title = "いいね一覧"
+        @title = I18n.t("favorite.index")
         @user = User.find_by(name: params[:name])
         @note_ids = @user.favorites.pluck(:note_id)
         @notes = Note.find(@note_ids)

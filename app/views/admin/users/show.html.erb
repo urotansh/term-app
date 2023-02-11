@@ -18,7 +18,7 @@
         </div>
         <%# いいね一覧ボタン %>
         <div id="favorite_index">
-          <%= link_to "いいね一覧", admin_notes_path(name: @user.name, favorite: true), class: "btn btn-success btn-sm", remote: true %>
+          <%= link_to I18n.t("favorite.index"), admin_notes_path(name: @user.name, favorite: true), class: "btn btn-success btn-sm", remote: true %>
         </div>
       </div>
       
@@ -39,7 +39,7 @@
         <%# いいね一覧 %>
         <ul>
           <li data-jstree='{ "icon" : "fas fa-heart", "opened" : true }'>
-            <%= link_to "いいね一覧", admin_notes_path(name: @user.name, favorite: true), remote: true %>
+            <%= link_to I18n.t("favorite.index"), admin_notes_path(name: @user.name, favorite: true), remote: true %>
             <ul>
               <% @favorite_notes.each do |note| %>
                 <li data-jstree='{ "icon" : "far fa-file" }'>

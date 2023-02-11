@@ -219,3 +219,4 @@ ja:
     zero: "%{count}件"
     one: "%{count}件"
     other: "%{count}件"
+    index: "いいね一覧"

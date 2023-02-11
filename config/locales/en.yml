@@ -58,3 +58,4 @@ en:
     zero: "no favorite"
     one: "%{count} favorite"
     other: "%{count} favorites"
+    index: "Favorites"
