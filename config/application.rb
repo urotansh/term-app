@@ -21,6 +21,10 @@ module Term
     
     # デフォルトのlocaleを日本語(:ja)にする
     config.i18n.default_locale = :ja
+    
+    # アプリケーションでの利用を許可するロケールのリストを渡す
+    config.i18n.available_locales = %i(ja en)
+    
     # タイムゾーンをTokyoに設定
     config.time_zone = 'Tokyo'
   end
