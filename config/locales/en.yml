@@ -70,6 +70,7 @@ en:
     index: "Users"
     sign_up: "Sign Up"
     sign_in: "Sign In"
+    guest_sign_in: "Guest Sign In"
     sign_out: "Sign Out"
     my_page: "My Page"
   tag:
@@ -77,3 +78,7 @@ en:
   home:
     top: "Home"
     about: "About"
+    subtitle: |
+      Term is a terminology application that allows you to record and manage programming-related terms.
+      
+      You can also use it as a community site where you can refer to other people's glossaries and comment and like them.

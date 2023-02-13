@@ -68,13 +68,13 @@
             <li>
               <%= link_to I18n.t("home.top"), root_path, class: "btn btn-outline-light mx-3" %>
             </li>
-            <%# 新規登録 %>
-            <li>
-              <%= link_to I18n.t("user.sign_up"), new_user_registration_path, class: "btn btn-outline-light mx-3" %>
-            </li>
             <%# ログイン %>
             <li>
               <%= link_to I18n.t("user.sign_in"), new_user_session_path, class: "btn btn-outline-light mx-3" %>
+            </li>
+            <%# 新規登録 %>
+            <li>
+              <%= link_to I18n.t("user.sign_up"), new_user_registration_path, class: "btn btn-outline-light mx-3" %>
             </li>
           <% end %>
         </ul>

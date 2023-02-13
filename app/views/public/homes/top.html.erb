@@ -1,23 +1,25 @@
 <div class="container">
   <div class="row">
     <h5 class="mt-5 pl-5 mx-auto" style='font-family: "HiraginoSans-W1"'>
-      <p>T&nbsp;e&nbsp;r&nbsp;m&nbsp;はプログラミング関連の用語を記録・管理できる用語集アプリです。</p>
-      <p>他人の用語集を参考にしたりコメントやいいねができるコミュニティサイトとして利用することもできます。</p>
+      <p><%= nl2br(I18n.t("home.subtitle")) %></p>
     </h5>
     <div class="col-6 mx-auto">
+      <%# ゲストログイン %>
       <p class="text-center mt-3">
         <%= link_to(users_guest_sign_in_path, method: :post, class: 'btn btn-secondary btn-block') do %>
-          ゲストログイン
+          <%= I18n.t("user.guest_sign_in")%>
         <% end %>
       </p>
+      <%# ログイン %>
       <p class="text-center">
         <%= link_to(new_user_session_path, class: 'btn btn-info btn-block') do %>
-          ログイン
+          <%= I18n.t("user.sign_in")%>
         <% end %>
       </p>
+      <%# 新規登録 %>
       <p class="text-center">
         <%= link_to(new_user_registration_path, class: 'btn btn-success btn-block') do %>
-          新規登録
+          <%= I18n.t("user.sign_up")%>
         <% end %>
       </p>
     </div>
