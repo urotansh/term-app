@@ -7,12 +7,12 @@
       
         <div class="field">
           <%= f.label :name %><br />
-          <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control border border-secondary" %>
+          <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %>
         </div>
       
         <div class="field">
           <%= f.label :password %><br />
-          <%= f.password_field :password, autocomplete: "current-password", class: "form-control border border-secondary" %>
+          <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
         </div>
       
         <% if devise_mapping.rememberable? %>
