@@ -12,10 +12,10 @@
       <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
         <div class="flex-column">
           <% if admin_signed_in? %>
-            <p class="m-0">管理者:&nbsp;&nbsp;<span class="text-danger"><%= current_admin.name %></span></p>
+            <p class="m-0"><%= I18n.t("admin.name") %>:&nbsp;&nbsp;<span class="text-danger"><%= current_admin.name %></span></p>
           <% end %>
           <% if user_signed_in? %>
-            <p class="m-0">ユーザー名:&nbsp;&nbsp;<%= link_to current_user.name, user_path(current_user.name), class: "text-success" %></p>
+            <p class="m-0"><%= I18n.t("user.name") %>:&nbsp;&nbsp;<%= link_to current_user.name, user_path(current_user.name), class: "text-success" %></p>
           <% end %>
         </div>
       </div>
@@ -24,47 +24,57 @@
           <% if admin_signed_in? || user_signed_in? %>
           <ul class="navbar-nav">
             <li class>
+              <%# タグ検索 %>
               <%= form_with url: notes_path, method: :get, class: "d-flex mb-1" do |f| %>
-                <%= f.text_field :keyword, placeholder: "タグ検索", class: "form-control" %>
+                <%= f.text_field :keyword, placeholder: I18n.t("tag.search"), class: "form-control" %>
                 <%= f.hidden_field :tag_search, :value => "true" %>
-                <%= f.submit "タグ検索", class: "btn btn-outline-light mx-3" %>
+                <%= f.submit I18n.t("tag.search"), class: "btn btn-outline-light mx-3" %>
               <% end %>
+              <%# 投稿検索 %>
               <%= form_with url: notes_path, method: :get, class: "d-flex" do |f| %>
-                <%= f.text_field :keyword, placeholder: "投稿検索", class: "form-control" %>
+                <%= f.text_field :keyword, placeholder: I18n.t("note.search"), class: "form-control" %>
                 <%= f.hidden_field :note_search, :value => "true" %>
-                <%= f.submit "投稿検索", class: "btn btn-outline-light mx-3" %>
+                <%= f.submit I18n.t("note.search"), class: "btn btn-outline-light mx-3" %>
               <% end %>
             </li>
           </ul>
           <% end %>
           <% if admin_signed_in? %>
+            <%# ユーザー一覧 %>
             <li>
-              <%= link_to "ユーザー一覧", admin_users_path, class: "btn btn-outline-light mx-3" %>
+              <%= link_to I18n.t("user.index"), admin_users_path, class: "btn btn-outline-light mx-3" %>
             </li>
+            <%# 管理者ログアウト %>
             <li>
-              <%= link_to "管理者ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-outline-light mx-3" %>
+              <%= link_to I18n.t("admin.sign_out"), destroy_admin_session_path, method: :delete, class: "btn btn-outline-light mx-3" %>
             </li>
           <% elsif request.fullpath.include? "/admin" %>
+            <%# 管理者ログイン %>
             <li>
-              <%= link_to "管理者ログイン", new_admin_session_path, class: "btn btn-outline-light mx-3" %>
+              <%= link_to I18n.t("admin.sign_in"), new_admin_session_path, class: "btn btn-outline-light mx-3" %>
             </li>
           <% end %>
           <% if user_signed_in? %>
+            <%# マイページ %>
             <li>
-              <%= link_to "マイページ", user_path(current_user.name), class: "btn btn-outline-light mx-3" %>
+              <%= link_to I18n.t("user.my_page"), user_path(current_user.name), class: "btn btn-outline-light mx-3" %>
             </li>
+            <%# ログアウト %>
             <li>
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-outline-light mx-3" %>
+              <%= link_to I18n.t("user.sign_out"), destroy_user_session_path, method: :delete, class: "btn btn-outline-light mx-3" %>
             </li>
           <% else %>
+            <%# トップページ %>
             <li>
-              <%= link_to "トップページ", root_path, class: "btn btn-outline-light mx-3" %>
+              <%= link_to I18n.t("home.top"), root_path, class: "btn btn-outline-light mx-3" %>
             </li>
+            <%# 新規登録 %>
             <li>
-              <%= link_to "新規登録", new_user_registration_path, class: "btn btn-outline-light mx-3" %>
+              <%= link_to I18n.t("user.sign_up"), new_user_registration_path, class: "btn btn-outline-light mx-3" %>
             </li>
+            <%# ログイン %>
             <li>
-              <%= link_to "ログイン", new_user_session_path, class: "btn btn-outline-light mx-3" %>
+              <%= link_to I18n.t("user.sign_in"), new_user_session_path, class: "btn btn-outline-light mx-3" %>
             </li>
           <% end %>
         </ul>

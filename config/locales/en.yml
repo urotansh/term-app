@@ -50,6 +50,7 @@ en:
     edit: "Edit Post"
     show: "Post Details"
     index: "Posts"
+    search: "Post Search"
   note_comment:
     zero: "no comment"
     one: "%{count} comment"
@@ -59,5 +60,20 @@ en:
     one: "%{count} favorite"
     other: "%{count} favorites"
     index: "Favorites"
+  admin:
+    name: "admin"
+    sign_in: "Admin Sign In"
+    sign_out: "Admin Sign Out"
   user:
+    name: "username"
     edit: "Edit Profile"
+    index: "Users"
+    sign_up: "Sign Up"
+    sign_in: "Sign In"
+    sign_out: "Sign Out"
+    my_page: "My Page"
+  tag:
+    search: "Tag Search"
+  home:
+    top: "Home"
+    about: "About"

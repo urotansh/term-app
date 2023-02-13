@@ -211,6 +211,7 @@ ja:
     edit: "投稿編集"
     show: "投稿詳細"
     index: "投稿一覧"
+    search: "投稿検索"
   note_comment:
     zero: "%{count}件"
     one: "%{count}件"
@@ -220,5 +221,20 @@ ja:
     one: "%{count}件"
     other: "%{count}件"
     index: "いいね一覧"
+  admin:
+    name: "管理者名"
+    sign_in: "管理者ログイン"
+    sign_out: "管理者ログアウト"
   user:
+    name: "ユーザー名"
     edit: "プロフィール編集"
+    index: "ユーザー一覧"
+    sign_up: "新規登録"
+    sign_in: "ログイン"
+    sign_out: "ログアウト"
+    my_page: "マイページ"
+  tag:
+    search: "タグ検索"
+  home:
+    top: "トップページ"
+    about: "アバウトページ"
