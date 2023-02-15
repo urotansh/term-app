@@ -1,7 +1,8 @@
 <div class="container">
   <div class="row">
     <div class="col-6 mx-auto mt-5">
-      <h2>管理者ログイン</h2>
+      <%# 管理者ログイン %>
+      <h2><%= I18n.t("admin.sign_in") %></h2>
       
       <%= form_with model: @admin, url: admin_session_path do |f| %>
         <div class="field">
@@ -21,8 +22,9 @@
           </div>
         <% end %>
       
+        <%# 管理者ログインボタン %>
         <div class="actions text-center">
-          <%= f.submit "管理者ログイン", class: "btn btn-danger btn-block mt-3" %>
+          <%= f.submit I18n.t("admin.sign_in"), class: "btn btn-danger btn-block mt-3" %>
         </div>
       <% end %>
       
