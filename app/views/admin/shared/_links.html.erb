@@ -1,5 +1,6 @@
 <%- if controller_name != 'sessions' %>
-  <%= link_to "Log in", new_session_path(resource_name) %><br />
+  <%# 管理者ログインボタン %>
+  <%= link_to I18n.t("admin.sign_in"), new_session_path(resource_name) %><br />
 <% end %>
 
 <%
