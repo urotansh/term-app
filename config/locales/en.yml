@@ -74,6 +74,7 @@ en:
       false: "Valid"
     created_at: "Created"
     updated_at: "Updated"
+    image: "Profile Image"
     edit: "Edit Profile"
     index: "Users"
     show: "User Details"

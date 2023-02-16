@@ -1,11 +1,10 @@
 <div class="container">
   <div class="row">
     
-    <h1 class="mx-auto">
-      <%= @user.name %>さんのユーザー情報編集
-    </h1>
-    
     <div class="mx-auto col-8 mt-3">
+      <%# プロフィール編集 %>
+      <h2><%= I18n.t("user.edit") %></h2>
+    
       <%# バリデーションエラー %>
       <% if @user.errors.any? %>
         <h2><%= @user.errors.count %> errors prohibited this obj from being saved:</h2>
@@ -18,35 +17,35 @@
       
       <%= form_with model: @user, url: admin_user_path do |f| %>
       
-        <%= f.label :name, "ユーザー名" %><br>
+        <%= f.label :name, I18n.t("user.name") %><br>
         <%= f.text_field :name, class: "form-control w100" %><br>
         
-        <%= f.label :email, "メールアドレス" %><br>
+        <%= f.label :email, I18n.t("user.email") %><br>
         <%= f.email_field :email, class: "form-control w100" %><br>
         
-        <%= f.label :image, "プロフィール画像" %><br>
+        <%= f.label :image, I18n.t("user.image") %><br>
         <%= image_tag @user.get_image(100, 100), size: "100x100", class: "d-block mx-auto border" %>
         <%= f.file_field :image, accept: "image/*" %><br><br>
         
         <%= f.radio_button :is_deleted, false %>
-        <%= f.label :is_deleted_false, "有効" %>
+        <%= f.label :is_deleted_false, I18n.t("user.is_deleted.false") %>
         
         <%= f.radio_button :is_deleted, true %>
-        <%= f.label :is_deleted_true, "退会" %><br><br>
+        <%= f.label :is_deleted_true, I18n.t("user.is_deleted.true") %><br><br>
 
-        <p>登録日時:<%= @user.created_at.strftime("%Y/%m/%d %H:%M:%S") %></p>
-        <p>更新日時:<%= @user.updated_at.strftime("%Y/%m/%d %H:%M:%S") %></p>
+        <p><%= I18n.t("user.created_at") %>:<%= @user.created_at.strftime("%Y/%m/%d %H:%M:%S") %></p>
+        <p><%= I18n.t("user.updated_at") %>:<%= @user.updated_at.strftime("%Y/%m/%d %H:%M:%S") %></p>
         
         <div class="text-center mt-1">
-          <%= f.submit "更新する", class: "btn btn-info w-50" %>
+          <%= f.submit class: "btn btn-info w-50" %>
         </div>
         
         <div class="text-center mt-4">
-          <%= link_to "ユーザー一覧", admin_users_path, class: "btn btn-secondary w-50" %>
+          <%= link_to I18n.t("user.index"), admin_users_path, class: "btn btn-secondary w-50" %>
         </div>
 
         <div class="text-center mt-1">
-          <%= link_to "ユーザー詳細", admin_user_path(@user.name), class: "btn btn-secondary w-50" %>
+          <%= link_to I18n.t("user.show"), admin_user_path(@user.name), class: "btn btn-secondary w-50" %>
         </div>
         
       <% end %>

@@ -235,6 +235,7 @@ ja:
       false: "有効"
     created_at: "登録日時"
     updated_at: "更新日時"
+    image: "プロフィール画像"
     edit: "プロフィール編集"
     index: "ユーザー一覧"
     show: "ユーザー詳細"
