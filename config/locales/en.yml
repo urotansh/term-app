@@ -78,7 +78,10 @@ en:
     edit: "Edit Profile"
     index: "Users"
     show: "User Details"
-    withdraw: "Withdraw"
+    withdraw:
+      confirm: "Do you really want to withdraw?"
+      true: "Withdraw"
+      false: "Not Withdraw"
     sign_up: "Sign Up"
     sign_in: "Sign In"
     guest_sign_in: "Guest Sign In"
