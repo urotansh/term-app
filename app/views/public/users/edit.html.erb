@@ -2,7 +2,8 @@
   <div class="row">
     <div class="mx-auto col-lg-6">
       
-      <h1>ユーザー情報編集</h1>
+      <%# プロフィール編集 %>
+      <h2><%= I18n.t("user.edit") %></h2>
       
       <%# バリデーションエラー %>
       <% if @user.errors.any? %>
@@ -16,26 +17,26 @@
       
         <%= form_with model: @user, url: settings_profile_users_path do |f| %>
         
-          <%= f.label :name, 'ユーザー名'  %><br>
+          <%= f.label :name, I18n.t("user.name")  %><br>
           <%= f.text_field :name, class: "form-control w100" %><br>
           
-          <%= f.label :image, "プロフィール画像" %><br>
+          <%= f.label :image, I18n.t("user.image") %><br>
           <%= image_tag @user.get_image(100, 100), size: "100x100", class: "d-block mx-auto border" %>
           <%= f.file_field :image, accept: "image/*" %><br><br>
         
           <div class="text-center mt-5">
-            <%= f.submit "更新する", class: "btn btn-info w-50" %>
+            <%= f.submit class: "btn btn-info w-50" %>
           </div>
         <% end %>
   
       <%# 退会確認画面へのリンク %>
       <div class="text-center mt-5">
-        <%= link_to "マイページへ戻る", user_path(@user.name), class: "btn btn-success w-50" %>
+        <%= link_to I18n.t("user.my_page"), user_path(@user.name), class: "btn btn-success w-50" %>
       </div>
       
       <%# 退会確認画面へのリンク %>
       <div class="text-center mt-5">
-        <%= link_to "退会する", quit_users_path, class: "btn btn-danger w-50" %>
+        <%= link_to I18n.t("user.withdraw"), quit_users_path, class: "btn btn-danger w-50" %>
       </div>
     </div>
   </div>

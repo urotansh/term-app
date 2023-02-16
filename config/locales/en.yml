@@ -78,6 +78,7 @@ en:
     edit: "Edit Profile"
     index: "Users"
     show: "User Details"
+    withdraw: "Withdraw"
     sign_up: "Sign Up"
     sign_in: "Sign In"
     guest_sign_in: "Guest Sign In"
