@@ -61,18 +61,28 @@ en:
     other: "%{count} favorites"
     index: "Favorites"
   admin:
-    name: "admin"
+    name: "Admin"
     sign_in: "Admin Sign In"
     sign_out: "Admin Sign Out"
   user:
-    name: "username"
+    id: "Id"
+    name: "Username"
+    email: "Email"
+    status: "Status"
+    is_deleted:
+      true: "Invalid"
+      false: "Valid"
+    created_at: "Created"
+    updated_at: "Updated"
     edit: "Edit Profile"
     index: "Users"
+    show: "User Details"
     sign_up: "Sign Up"
     sign_in: "Sign In"
     guest_sign_in: "Guest Sign In"
     sign_out: "Sign Out"
     my_page: "My Page"
+    search: "User Search"
   tag:
     search: "Tag Search"
   home:

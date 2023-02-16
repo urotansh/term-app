@@ -2,27 +2,30 @@
   <div class="row">
 
     <div class="col-12">
-      <h2>ユーザー一覧</h2>
+      <%# ユーザー一覧 %>
+      <h2><%= I18n.t("user.index") %></h2>
     </div>
 
     <div class="col-12 m-3">
       <%= search_form_for @q, url: search_admin_users_path, class: "d-flex justify-content-center align-items-center" do |f| %>
-        <%= f.label :name_cont, "ユーザー名", class: "h5 text-center" %>
+        <%# ユーザー名 %>
+        <%= f.label :name_cont, I18n.t("user.name"), class: "h5 text-center" %>
         <%= f.search_field :name_cont, class: "form-control w-50" %>
-        <%= f.submit '検索', class: "btn btn-success" %>
+        <%# ユーザー検索 %>
+        <%= f.submit I18n.t("user.search"), class: "btn btn-success" %>
       <% end %>
     </div>
 
     <table class="table table-hover shadow-lg">
       <thead class="bg-light">
         <tr>
-          <th>ユーザーID</th>
+          <th><%= I18n.t("user.id") %></th>
           <th></th>
-          <th>ユーザー名</th>
-          <th>メールアドレス</th>
-          <th>ステータス</th>
-          <th>登録日時</th>
-          <th>更新日時</th>
+          <th><%= I18n.t("user.name") %></th>
+          <th><%= I18n.t("user.email") %></th>
+          <th><%= I18n.t("user.status") %></th>
+          <th><%= I18n.t("user.created_at") %></th>
+          <th><%= I18n.t("user.updated_at") %></th>
           <th></th>
           <th></th>
         </tr>
@@ -47,14 +50,18 @@
             <td><%= user.name %></td>
             <td><%= user.email %></td>
             <% if user.is_deleted == false %>
-              <td class="text-success font-weight-bold">有効</td>
+              <%# 有効 %>
+              <td class="text-success font-weight-bold"><%= I18n.t("user.is_deleted.false") %></td>
             <% else %>
-              <td class="text-secondary font-weight-bold">退会</td>
+              <%# 無効 %>
+              <td class="text-secondary font-weight-bold"><%= I18n.t("user.is_deleted.true") %></td>
             <% end %>
             <td><%= user.created_at.strftime("%Y/%m/%d %H:%M:%S") %></td>
             <td><%= user.updated_at.strftime("%Y/%m/%d %H:%M:%S") %></td>
-            <td><%= link_to "ユーザー編集", edit_admin_user_path(user.name), class: "btn btn-sm btn-outline-secondary" %></td>
-            <td><%= link_to "ユーザー詳細", admin_user_path(user.name), class: "btn btn-sm btn-outline-secondary" %></td>
+            <%# プロフィール編集ボタン %>
+            <td><%= link_to I18n.t("user.edit"), edit_admin_user_path(user.name), class: "btn btn-sm btn-outline-secondary" %></td>
+            <%# ユーザー詳細ボタン %>
+            <td><%= link_to I18n.t("user.show"), admin_user_path(user.name), class: "btn btn-sm btn-outline-secondary" %></td>
           </tr>
         <% end %>
         
