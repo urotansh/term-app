@@ -6,14 +6,7 @@
       <h2><%= I18n.t("user.edit") %></h2>
     
       <%# バリデーションエラー %>
-      <% if @user.errors.any? %>
-        <h2><%= @user.errors.count %> errors prohibited this obj from being saved:</h2>
-        <ul>
-          <% @user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-          <% end %>
-        </ul>
-      <% end %>
+      <%= render "layouts/errors", obj: @user %>
       
       <%= form_with model: @user, url: admin_user_path do |f| %>
       
