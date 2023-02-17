@@ -24,6 +24,8 @@ class Public::UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to settings_profile_users_path, notice: "ユーザー情報を更新しました。"
     else
+      # レシーバのユーザ名が不正値でupdateされるため正常値へ戻す
+      @user.name = current_user.name
       render :edit
     end
   end
