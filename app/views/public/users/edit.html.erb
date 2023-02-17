@@ -8,19 +8,19 @@
       <%# バリデーションエラー %>
       <%= render "layouts/errors", obj: @user %>
       
-        <%= form_with model: @user, url: settings_profile_users_path do |f| %>
+      <%= form_with model: @user, url: settings_profile_users_path do |f| %>
+      
+        <%= f.label :name, I18n.t("user.name")  %><br>
+        <%= f.text_field :name, class: "form-control w100" %><br>
         
-          <%= f.label :name, I18n.t("user.name")  %><br>
-          <%= f.text_field :name, class: "form-control w100" %><br>
-          
-          <%= f.label :image, I18n.t("user.image") %><br>
-          <%= image_tag @user.get_image(100, 100), size: "100x100", class: "d-block mx-auto border" %>
-          <%= f.file_field :image, accept: "image/*" %><br><br>
-        
-          <div class="text-center mt-5">
-            <%= f.submit class: "btn btn-info w-50" %>
-          </div>
-        <% end %>
+        <%= f.label :image, I18n.t("user.image") %><br>
+        <%= image_tag @user.get_image(100, 100), size: "100x100", class: "d-block mx-auto border" %>
+        <%= f.file_field :image, accept: "image/*" %><br><br>
+      
+        <div class="text-center mt-5">
+          <%= f.submit class: "btn btn-info w-50" %>
+        </div>
+      <% end %>
   
       <%# 退会確認画面へのリンク %>
       <div class="text-center mt-5">
