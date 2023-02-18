@@ -25,7 +25,83 @@
 - 他人の記録内容を参考にしたい時
 
 ## 設計書
-...
+- ER図
+```mermaid
+erDiagram
+  User ||--o{ Note: ""
+  User ||--o{ Favorite: ""
+  User ||--o{ NoteComment: ""
+  Note ||--o{ NoteComment: ""
+  Note ||--o{ Favorite: ""
+  Note ||--o{ NoteTag: ""
+  Tag ||--o{ NoteTag: ""
+  
+  User {
+    id                      integer
+    name                    string
+    email                   string
+    is_deleted              boolean
+    encrypted_password      string
+    reset_password_token    string
+    reset_password_sent_at  datetime
+    remember_created_at     datetime
+    created_at              datetime
+    updated_at              datetime
+  }
+
+  Admin {
+    id                      integer
+    name                    string
+    email                   string
+    encrypted_password      string
+    reset_password_token    string
+    reset_password_sent_at  datetime
+    remember_created_at     datetime
+    created_at              datetime
+    updated_at              datetime
+  }
+
+  Note {
+    id                      integer
+    user_id                 integer
+    title                   string
+    content                 text
+    created_at              datetime
+    updated_at              datetime
+  }
+
+  NoteComment {
+    id                      integer
+    user_id                 integer
+    note_id                 integer
+    comment                 text
+    created_at              datetime
+    updated_at              datetime
+  }
+
+  Favorite {
+    id                      integer
+    user_id                 integer
+    note_id                 integer
+    created_at              datetime
+    updated_at              datetime
+  }
+
+  Tag {
+    id                      integer
+    name                    string
+    created_at              datetime
+    updated_at              datetime
+  }
+
+  NoteTag {
+    id                      integer
+    note_id                 integer
+    tag_id                  integer
+    created_at              datetime
+    updated_at              datetime
+  }
+```
 
 ## 開発環境
 - OS：Linux(CentOS)
