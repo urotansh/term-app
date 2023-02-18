@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_admin!, except: :top, if: :admin_url
-  before_action :set_locale, if: :inspect_lang_params
+  around_action :switch_locale
   
   def admin_url
     request.fullpath.include?("/admin")
@@ -30,16 +30,9 @@ class ApplicationController < ActionController::Base
   
   private
   
-  def set_locale
-    I18n.locale = params[:lang].to_sym
-  end
-  
-  def inspect_lang_params
-    if params[:lang].present? && params[:lang].to_sym.in?(I18n::available_locales)
-      return true
-    else
-      return false
-    end
+  def switch_locale(&action)
+    locale = params[:lang] || I18n.default_locale
+    I18n.with_locale(locale, &action)
   end
   
 end
