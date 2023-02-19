@@ -1,6 +1,12 @@
 <header>
   <nav class="navbar navbar-dark bg-dark navbar-expand-lg text-white">
     <div class="container">
+      <%# ロケール切替 %>
+      <div style="position: fixed; left: 5px; top: 5px;">
+        <%= link_to "JP", url_for(lang: :ja), class:"text-white" %>
+        |
+        <%= link_to "EN", url_for(lang: :en), class: "text-white" %>
+      </div>
       <a class="navbar-brand text-white" href="/">
         <h2 class="d-inline-block">
           > Term
