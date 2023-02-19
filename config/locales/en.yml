@@ -70,8 +70,8 @@ en:
     email: "Email"
     status: "Status"
     is_deleted:
-      true: "Invalid"
-      false: "Valid"
+      'true': "Invalid"
+      'false': "Valid"
     created_at: "Created"
     updated_at: "Updated"
     image: "Profile Image"
@@ -80,8 +80,8 @@ en:
     show: "User Details"
     withdraw:
       confirm: "Do you really want to withdraw?"
-      true: "Withdraw"
-      false: "Not Withdraw"
+      'true': "Withdraw"
+      'false': "Not Withdraw"
     sign_up: "Sign Up"
     sign_in: "Sign In"
     guest_sign_in: "Guest Sign In"
