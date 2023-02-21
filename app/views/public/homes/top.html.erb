@@ -7,19 +7,19 @@
       <%# ゲストログイン %>
       <p class="text-center mt-3">
         <%= link_to(users_guest_sign_in_path, method: :post, class: 'btn btn-secondary btn-block') do %>
-          <%= I18n.t("user.guest_sign_in")%>
+          <%= I18n.t("user.guest_sign_in") %>
         <% end %>
       </p>
       <%# ログイン %>
       <p class="text-center">
         <%= link_to(new_user_session_path, class: 'btn btn-info btn-block', data: {turbolinks: false}) do %>
-          <%= I18n.t("user.sign_in")%>
+          <%= I18n.t("user.sign_in") %>
         <% end %>
       </p>
       <%# 新規登録 %>
       <p class="text-center">
         <%= link_to(new_user_registration_path, class: 'btn btn-success btn-block') do %>
-          <%= I18n.t("user.sign_up")%>
+          <%= I18n.t("user.sign_up") %>
         <% end %>
       </p>
     </div>
