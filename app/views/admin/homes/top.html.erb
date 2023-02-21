@@ -3,7 +3,7 @@
     <div class="col-6 mx-auto mt-5">
       <%# 管理者ログイン %>
       <p class="text-center mt-5">
-        <%= link_to(new_admin_session_path, class: 'btn btn-danger btn-block') do %>
+        <%= link_to(new_admin_session_path, class: 'btn btn-danger btn-block', data: {turbolinks: false}) do %>
           <%= I18n.t("admin.sign_in")%>
         <% end %>
       </p>

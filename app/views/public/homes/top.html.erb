@@ -12,7 +12,7 @@
       </p>
       <%# ログイン %>
       <p class="text-center">
-        <%= link_to(new_user_session_path, class: 'btn btn-info btn-block') do %>
+        <%= link_to(new_user_session_path, class: 'btn btn-info btn-block', data: {turbolinks: false}) do %>
           <%= I18n.t("user.sign_in")%>
         <% end %>
       </p>
