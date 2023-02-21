@@ -35,71 +35,71 @@ erDiagram
   Note ||--o{ Favorite: ""
   Note ||--o{ NoteTag: ""
   Tag ||--o{ NoteTag: ""
-  
+
   User {
-    id                      integer
-    name                    string
-    email                   string
-    is_deleted              boolean
-    encrypted_password      string
-    reset_password_token    string
-    reset_password_sent_at  datetime
-    remember_created_at     datetime
-    created_at              datetime
-    updated_at              datetime
+    integer   id                      PK
+    string    name                      
+    string    email                     
+    boolean   is_deleted                
+    string    encrypted_password        
+    string    reset_password_token      
+    datetime  reset_password_sent_at    
+    datetime  remember_created_at       
+    datetime  created_at                
+    datetime  updated_at                
   }
 
   Admin {
-    id                      integer
-    name                    string
-    email                   string
-    encrypted_password      string
-    reset_password_token    string
-    reset_password_sent_at  datetime
-    remember_created_at     datetime
-    created_at              datetime
-    updated_at              datetime
+    integer   id                      PK
+    string    name                      
+    string    email                     
+    string    encrypted_password        
+    string    reset_password_token      
+    datetime  reset_password_sent_at    
+    datetime  remember_created_at       
+    datetime  created_at                
+    datetime  updated_at                
   }
 
   Note {
-    id                      integer
-    user_id                 integer
-    title                   string
-    content                 text
-    created_at              datetime
-    updated_at              datetime
+    integer   id                      PK
+    integer   user_id                 FK
+    string    title                     
+    text      content                   
+    datetime  created_at                
+    datetime  updated_at                
   }
 
   NoteComment {
-    id                      integer
-    user_id                 integer
-    note_id                 integer
-    comment                 text
-    created_at              datetime
-    updated_at              datetime
+    integer   id                      PK
+    integer   user_id                 FK
+    integer   note_id                 FK
+    text      comment                   
+    datetime  created_at                
+    datetime  updated_at                
   }
 
   Favorite {
-    id                      integer
-    user_id                 integer
-    note_id                 integer
-    created_at              datetime
-    updated_at              datetime
+    integer   id                      PK
+    integer   user_id                 FK
+    integer   note_id                 FK
+    datetime  created_at                
+    datetime  updated_at                
   }
 
   Tag {
-    id                      integer
-    name                    string
-    created_at              datetime
-    updated_at              datetime
+    integer   id                      PK
+    string    name                      
+    datetime  created_at                
+    datetime  updated_at                
   }
 
   NoteTag {
-    id                      integer
-    note_id                 integer
-    tag_id                  integer
-    created_at              datetime
-    updated_at              datetime
+    integer   id                      PK
+    integer   note_id                 FK
+    integer   tag_id                  FK
+    datetime  created_at                
+    datetime  updated_at                
   }
 ```
 
