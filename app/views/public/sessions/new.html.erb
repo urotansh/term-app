@@ -7,7 +7,7 @@
       <%= form_with model: @user, url: user_session_path do |f| %>
       
         <div class="field">
-          <%= f.label :name %><br />
+          <%= f.label :name, I18n.t("user.name") %><br />
           <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %>
         </div>
       
