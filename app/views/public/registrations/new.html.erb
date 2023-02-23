@@ -8,7 +8,7 @@
         <%= render "public/shared/error_messages", resource: resource %>
         
         <div class="field">
-          <%= f.label :name %><br />
+          <%= f.label :name, I18n.t("user.name") %><br />
           <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %>
         </div>
         
