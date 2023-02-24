@@ -249,6 +249,8 @@ ja:
     sign_out: "ログアウト"
     my_page: "マイページ"
     search: "ユーザー検索"
+    notice:
+      guest_sign_in: "ゲストユーザでログインしました。"
   tag:
     search: "タグ検索"
   home:

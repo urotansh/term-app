@@ -88,6 +88,8 @@ en:
     sign_out: "Sign Out"
     my_page: "My Page"
     search: "User Search"
+    notice:
+      guest_sign_in: "Signed in successfully as a guest."
   tag:
     search: "Tag Search"
   home:
