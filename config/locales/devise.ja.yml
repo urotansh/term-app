@@ -141,6 +141,7 @@ ja:
       already_signed_out: 既にログアウト済みです。
       new:
         sign_in: ログイン
+      guest_signed_in: "ゲストユーザでログインしました。"
       signed_in: ログインしました。
       signed_out: ログアウトしました。
     shared:
