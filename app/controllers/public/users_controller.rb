@@ -22,7 +22,7 @@ class Public::UsersController < ApplicationController
   def update
     @user = User.find(current_user.id)
     if @user.update(user_params)
-      redirect_to settings_profile_users_path, notice: "ユーザー情報を更新しました。"
+      redirect_to settings_profile_users_path, notice: I18n.t("user.notice.update")
     else
       # レシーバのユーザ名が不正値でupdateされるため正常値へ戻す
       @user.name = current_user.name
@@ -37,7 +37,7 @@ class Public::UsersController < ApplicationController
     @user = User.find(current_user.id)
     @user.update(is_deleted: true)
     reset_session
-    redirect_to root_path, notice: "退会処理が完了しました。"
+    redirect_to root_path, notice: I18n.t("user.notice.withdraw")
   end
   
   def following
@@ -64,7 +64,7 @@ class Public::UsersController < ApplicationController
   def ensure_guest_user
     @user = User.find(current_user.id)
     if @user.name == "guestuser"
-      redirect_to user_path(current_user.name) , notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
+      redirect_to user_path(current_user.name) , notice: I18n.t("user.notice.ensure_guest_user")
     end
   end
   
