@@ -250,7 +250,7 @@ ja:
     my_page: "マイページ"
     search: "ユーザー検索"
     notice:
-      update: "ユーザー情報を更新しました。"
+      update: "プロフィールを更新しました。"
       withdraw: "退会処理が完了しました。"
       ensure_guest_user: "ゲストユーザーはプロフィール編集画面へ遷移できません。"
   tag:

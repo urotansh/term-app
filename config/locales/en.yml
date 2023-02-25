@@ -89,7 +89,7 @@ en:
     my_page: "My Page"
     search: "User Search"
     notice:
-      update: "Updated user successfully."
+      update: "Updated profile successfully."
       withdraw: "Withdarawal was successfully."
       ensure_guest_user: "Guest can't access to the Edit Profile page."
   tag:
