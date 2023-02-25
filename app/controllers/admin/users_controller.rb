@@ -12,7 +12,7 @@ class Admin::UsersController < ApplicationController
   def update
     @user = User.find_by(name: params[:name])
     if @user.update(user_params)
-      redirect_to edit_admin_user_path(@user.name), notice: "ユーザー情報を更新しました。"
+      redirect_to edit_admin_user_path(@user.name), notice: I18n.t("user.notice.update")
     else
       # レシーバのユーザ名が不正値でupdateされるため正常値へ戻す
       @user.name = params[:name]
