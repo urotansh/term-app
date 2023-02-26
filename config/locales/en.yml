@@ -51,6 +51,10 @@ en:
     show: "Post Details"
     index: "Posts"
     search: "Post Search"
+    notice:
+      create: "Post was successfully created."
+      update: "Post was successfully updated."
+      destroy: "Post was successfully destroyed."
   note_comment:
     zero: "no comment"
     one: "%{count} comment"
