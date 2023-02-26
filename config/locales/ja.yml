@@ -221,6 +221,8 @@ ja:
     zero: "%{count}件"
     one: "%{count}件"
     other: "%{count}件"
+    create: "コメント投稿"
+    destroy: "コメント削除"
   favorite:
     zero: "%{count}件"
     one: "%{count}件"

@@ -60,6 +60,8 @@ en:
     zero: "no comment"
     one: "%{count} comment"
     other: "%{count} comments"
+    create: "Post Comment"
+    destroy: "Destroy Comment"
   favorite:
     zero: "no favorite"
     one: "%{count} favorite"
