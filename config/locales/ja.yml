@@ -211,6 +211,7 @@ ja:
     edit: "投稿編集"
     show: "投稿詳細"
     index: "投稿一覧"
+    destroy: "投稿削除"
     search: "投稿検索"
     notice:
       create: "新規投稿が成功しました。"

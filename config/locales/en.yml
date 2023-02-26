@@ -50,6 +50,7 @@ en:
     edit: "Edit Post"
     show: "Post Details"
     index: "Posts"
+    destroy: "Destroy Post"
     search: "Post Search"
     notice:
       create: "Post was successfully created."
