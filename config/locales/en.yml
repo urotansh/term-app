@@ -62,6 +62,9 @@ en:
     other: "%{count} comments"
     create: "Post Comment"
     destroy: "Destroy Comment"
+    form:
+      description: "&#8984;+Enter or Ctrl+Enter to Post"
+      placeholder: "Enter Comment"
   favorite:
     zero: "no favorite"
     one: "%{count} favorite"

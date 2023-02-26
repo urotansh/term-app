@@ -223,6 +223,9 @@ ja:
     other: "%{count}件"
     create: "コメント投稿"
     destroy: "コメント削除"
+    form:
+      description: "&#8984;+Enter または Ctrl+Enter で投稿"
+      placeholder: "コメントを入力"
   favorite:
     zero: "%{count}件"
     one: "%{count}件"
