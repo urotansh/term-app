@@ -1,7 +1,8 @@
 <div class="container">
   <div class="row">
     <div class="col-12 mx-auto">
-      <h2>投稿ユーザー</h2>
+      <%# ユーザー名 %>
+      <h2><%= I18n.t("user.name") %></h2>
       <div class="mb-3">
         <% if admin_signed_in? %>
           <%= link_to admin_user_path(@note.user.name) do %>
