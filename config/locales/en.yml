@@ -67,10 +67,10 @@ en:
     zero: "no comment"
     one: "%{count} comment"
     other: "%{count} comments"
-    create: "Post Comment"
+    create: "Create Comment"
     destroy: "Destroy Comment"
     form:
-      description: "&#8984;+Enter or Ctrl+Enter to Post"
+      description: "&#8984;+Enter or Ctrl+Enter to Create"
       placeholder: "Enter Comment"
   favorite:
     zero: "no favorite"
