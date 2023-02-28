@@ -12,13 +12,15 @@
         <div class="d-flex justify-content-around border-top m-1">
           <div>
             <%= link_to following_user_path(@user.name), remote: true, class: "text-dark" do %>
-              <p class="m-0">フォロー</p>
+              <%# フォロー一覧 %>
+              <p class="m-0"><%= I18n.t("user.following") %></p>
               <p id="following" class="m-0 text-center"><%= @user.following.count %></p>
             <% end %>
           </div>
           <div>
             <%= link_to followers_user_path(@user.name), remote: true, class: "text-dark" do %>
-              <p class="m-0">フォロワー</p>
+              <%# フォロワー一覧 %>
+              <p class="m-0"><%= I18n.t("user.followers") %></p>
               <p id="followers" class="m-0 text-center"><%= @user.followers.count %></p>
             <% end %>
           </div>

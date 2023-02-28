@@ -99,6 +99,8 @@ en:
       confirm: "Do you really want to withdraw?"
       'yes': "Withdraw"
       'no': "Not Withdraw"
+    following: "Following"
+    followers: "Followers"
     sign_up: "Sign Up"
     sign_in: "Sign In"
     guest_sign_in: "Guest Sign In"

@@ -41,14 +41,16 @@ class Public::UsersController < ApplicationController
   end
   
   def following
-    @title = "フォロー"
+    # フォロー
+    @title = I18n.t("user.following")
     @user  = User.find_by(name: params[:name])
     @users = @user.following.page(params[:page])
     render 'show_follow'
   end
 
   def followers
-    @title = "フォロワー"
+    # フォロワー
+    @title = I18n.t("user.followers")
     @user  = User.find_by(name: params[:name])
     @users = @user.followers.page(params[:page])
     render 'show_follow'
