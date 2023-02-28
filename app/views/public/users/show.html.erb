@@ -35,9 +35,11 @@
           <%# フォローボタン %>
           <div class="follow-btn-<%= @user.name %>">
             <% if current_user.following?(@user) %>
-              <%= link_to "フォロー解除", user_relationships_path(@user.name), method: :delete, remote: true, class: "btn btn-outline-secondary btn-sm d-block mx-auto" %>
+              <%# フォロー解除 %>
+              <%= link_to I18n.t("user.unfollow"), user_relationships_path(@user.name), method: :delete, remote: true, class: "btn btn-outline-secondary btn-sm d-block mx-auto" %>
             <% else %>
-              <%= link_to "フォローする", user_relationships_path(@user.name), method: :post, remote: true, class: "btn btn-secondary btn-sm d-block mx-auto" %>
+              <%# フォローする %>
+              <%= link_to I18n.t("user.follow"), user_relationships_path(@user.name), method: :post, remote: true, class: "btn btn-secondary btn-sm d-block mx-auto" %>
             <% end %>
           </div>
         <% end %>

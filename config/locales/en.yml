@@ -101,6 +101,8 @@ en:
       'no': "Not Withdraw"
     following: "Following"
     followers: "Followers"
+    follow: "Follow"
+    unfollow: "Unfollow"
     sign_up: "Sign Up"
     sign_in: "Sign In"
     guest_sign_in: "Guest Sign In"

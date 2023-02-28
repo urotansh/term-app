@@ -4,4 +4,4 @@ $("#following").html("<%= current_user.following.count %>")
 $("#followers").html("<%= @user.followers.count %>")
 <% else %>
 <% end %>
-$(".follow-btn-<%= @user.name %>").html("<%= j(link_to "フォロー解除", user_relationships_path(@user.name), method: :delete, remote: true, class: "btn btn-outline-secondary btn-sm d-block mx-auto", id: "unfollow") %>")
+$(".follow-btn-<%= @user.name %>").html("<%= j(link_to I18n.t("user.unfollow"), user_relationships_path(@user.name), method: :delete, remote: true, class: "btn btn-outline-secondary btn-sm d-block mx-auto", id: "unfollow") %>")
