@@ -31,10 +31,12 @@ erDiagram
   User ||--o{ Note: ""
   User ||--o{ Favorite: ""
   User ||--o{ NoteComment: ""
+  User ||--o{ Relationship: "followed"
+  User ||--o{ Relationship: "follower"
   Note ||--o{ NoteComment: ""
   Note ||--o{ Favorite: ""
   Note ||--o{ NoteTag: ""
-  Tag ||--o{ NoteTag: ""
+  Tag  ||--o{ NoteTag: ""
 
   User {
     integer   id                      PK
@@ -98,6 +100,14 @@ erDiagram
     integer   id                      PK
     integer   note_id                 FK
     integer   tag_id                  FK
+    datetime  created_at                
+    datetime  updated_at                
+  }
+
+  Relationship {
+    integer   id                      PK
+    integer   followed_id             FK
+    integer   follower_id             FK
     datetime  created_at                
     datetime  updated_at                
   }
