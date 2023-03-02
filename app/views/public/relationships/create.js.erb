@@ -1,7 +1,16 @@
+<%# フォロー機能 %>
+<%# https://github.com/rails/rails/blob/f2d1b7bbc758ee7fe611ea3429629b250931770f/actionpack/lib/action_dispatch/routing/route_set.rb#L865-L878 %>
+<%# Rails.application.routes.recognize_path(path, environment = {}) -> コントローラー, アクション, パスパラメータをハッシュで返却 %>
+<%# request.referrer -> リクエスト元URL %>
+
+<%# リクエスト元URLのパスパラメータがログインユーザ名の場合、フォロー件数を更新 %>
 <% if Rails.application.routes.recognize_path(request.referrer)[:name] == current_user.name %>
-$("#following").html("<%= current_user.following.count %>")
+  $("#following").html("<%= current_user.following.count %>")
+<%# リクエスト元URLのパスパラメータが他ユーザ名の場合、フォロワー件数を更新 %>
 <% elsif Rails.application.routes.recognize_path(request.referrer)[:name] == @user.name %>
-$("#followers").html("<%= @user.followers.count %>")
+  $("#followers").html("<%= @user.followers.count %>")
 <% else %>
 <% end %>
+
+<%# フォローボタンをフォロー解除ボタンへ置換 %>
 $(".follow-btn-<%= @user.name %>").html("<%= j(link_to I18n.t("user.unfollow"), user_relationships_path(@user.name), method: :delete, remote: true, class: "btn btn-outline-secondary btn-sm d-block mx-auto", id: "unfollow") %>")
