@@ -1,6 +1,6 @@
 class Public::RelationshipsController < ApplicationController
   
-  before_action :set_path_param_name, only: [:destroy]
+  before_action :set_path_param_name, only: [:create, :destroy]
   
   def create
     @user = User.find_by(name: params[:user_name])
