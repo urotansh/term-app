@@ -1,18 +1,21 @@
 class Public::RelationshipsController < ApplicationController
   
+  before_action :set_user, only: [:create, :destroy]
   before_action :set_path_param_name, only: [:create, :destroy]
   
   def create
-    @user = User.find_by(name: params[:user_name])
     current_user.follow(@user)
   end
 
   def destroy
-    @user = User.find_by(name: params[:user_name])
     current_user.unfollow(@user)
   end
   
   private
+  
+  def set_user
+    @user = User.find_by(name: params[:user_name])
+  end
   
   def set_path_param_name
     # パスパラメータ(ユーザー名)を変数へ格納
