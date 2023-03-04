@@ -1,12 +1,12 @@
 <%# フォロー解除機能 %>
 
+<% case @path_param_name %>
 <%# リクエスト元URLのパスパラメータがログインユーザ名の場合、フォロー件数を更新 %>
-<% if @path_param_name == current_user.name %>
+<% when current_user.name %>
   $("#following").html("<%= current_user.following.count %>")
 <%# リクエスト元URLのパスパラメータが他ユーザ名の場合、フォロワー件数を更新 %>
-<% elsif @path_param_name == @user.name %>
+<% when @user.name %>
   $("#followers").html("<%= @user.followers.count %>")
-<% else %>
 <% end %>
 
 <%# フォロー解除ボタンをフォローボタンへ置換 %>
