@@ -1,5 +1,6 @@
 class Public::NoteCommentsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_note, only: [:create, :destroy, :index]
   
   def create
     @note_comment = NoteComment.new(note_comment_params)
@@ -7,8 +8,6 @@ class Public::NoteCommentsController < ApplicationController
     @note_comment.note_id = params[:note_id]
     
     if @note_comment.save
-      # *.js.erbで参照するインスタンス
-      @note = Note.find(params[:note_id])
       @note_comments = @note.note_comments.order(updated_at: :desc)
       @note_comments_pagination = @note_comments.page(params[:page]).per(5)
       render "create"
@@ -21,8 +20,6 @@ class Public::NoteCommentsController < ApplicationController
   def destroy
     @note_comment = NoteComment.find(params[:id])
     if @note_comment.destroy
-      # *.js.erbで参照するインスタンス
-      @note = Note.find(params[:note_id])
       @note_comments = @note.note_comments.order(updated_at: :desc)
       @note_comments_pagination = @note_comments.page(params[:page]).per(5)
       
@@ -37,12 +34,15 @@ class Public::NoteCommentsController < ApplicationController
   
   def index
     # コメント一覧
-    @note = Note.find(params[:note_id])
     @note_comments = @note.note_comments.order(updated_at: :desc)
     @note_comments_pagination = @note_comments.page(params[:page]).per(5)
   end
   
   private
+  
+  def set_note
+    @note = Note.find(params[:note_id])
+  end
   
   def note_comment_params
     params.require(:note_comment).permit(:comment)
