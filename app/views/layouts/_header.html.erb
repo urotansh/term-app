@@ -3,9 +3,9 @@
     <div class="container">
       <%# ロケール切替 %>
       <div style="position: fixed; left: 2px; top: 2px;">
-        <%= link_to "JP", url_for(lang: :ja), class:"text-white", data: {turbolinks: false} %>
+        <%= link_to "JP", request.query_parameters.merge(lang: :ja), class:"text-white", data: {turbolinks: false} %>
         |
-        <%= link_to "EN", url_for(lang: :en), class: "text-white", data: {turbolinks: false} %>
+        <%= link_to "EN", request.query_parameters.merge(lang: :en), class: "text-white", data: {turbolinks: false} %>
       </div>
       <a class="navbar-brand text-white" href="/">
         <h2 class="d-inline-block">
