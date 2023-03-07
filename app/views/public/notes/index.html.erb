@@ -50,7 +50,7 @@
             </td>
             <td><%= note.content.truncate(20) %></td>
             <td><%= I18n.t("note_comment", count: note.note_comments.count) %></td>
-            <td><i class="fas fa-heart"></i><%= note.favorites.count %></td>
+            <td><%= I18n.t("favorite", count: note.favorites.count) %></td>
             <td><%= note.created_at.strftime("%Y/%m/%d %H:%M:%S") %></td>
             <td><%= note.updated_at.strftime("%Y/%m/%d %H:%M:%S") %></td>
           </tr>
