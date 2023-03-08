@@ -122,3 +122,5 @@ en:
       Term is a terminology application that allows you to record and manage programming-related terms.
       
       You can also use it as a community site where you can refer to other people's glossaries and comment and like them.
+  search:
+    word: "Search Word"

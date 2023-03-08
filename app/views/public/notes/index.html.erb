@@ -4,7 +4,7 @@
     <h2>投稿一覧(全<%= @notes_count %>件)</h2>
       <% if !@search_keyword.nil? %>
         <% if !@search_keyword.empty?%>
-          <h4>検索ワード："<%= @search_keyword %>"</h4>
+          <h4><%= I18n.t("search.word") %>:"<%= @search_keyword %>"</h4>
         <% end %>
       <% end %>
     <table class="table table-hover table-sm">
