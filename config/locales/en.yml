@@ -125,3 +125,4 @@ en:
   search:
     word: "Search Word"
     results: "Search Results"
+    count: "( Total %{count} )"

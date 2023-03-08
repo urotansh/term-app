@@ -279,3 +279,4 @@ ja:
   search:
     word: "検索ワード"
     results: "検索結果"
+    count: "( 全 %{count} 件 )"
