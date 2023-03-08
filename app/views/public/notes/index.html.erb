@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-10 mx-auto">
-    <h2>投稿一覧(全<%= @notes_count %>件)</h2>
+    <h2><%= I18n.t("search.results") %>(全<%= @notes_count %>件)</h2>
       <% if !@search_keyword.nil? %>
         <% if !@search_keyword.empty?%>
           <h4><%= I18n.t("search.word") %>:"<%= @search_keyword %>"</h4>
