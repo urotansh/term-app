@@ -7,11 +7,11 @@
         |
         <%= link_to "EN", request.query_parameters.merge(lang: :en), class: "text-white", data: {turbolinks: false} %>
       </div>
-      <a class="navbar-brand text-white" href="/">
-        <h2 class="d-inline-block">
-          > Term
-        </h2>
-      </a>
+      <div>
+        <%= link_to root_path, class: "navbar-brand text-white" do %>
+          <h2>> Term</h2>
+        <% end %>
+      </div>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
