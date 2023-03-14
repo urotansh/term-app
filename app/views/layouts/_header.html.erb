@@ -34,6 +34,7 @@
               <%= form_with url: notes_path, method: :get, class: "d-flex mb-1" do |f| %>
                 <%= f.text_field :keyword, placeholder: I18n.t("tag.search"), class: "form-control" %>
                 <%= f.hidden_field :tag_search, value: "true" %>
+                <%# ロケール保持パラメータ %>
                 <%= f.hidden_field :lang, value: I18n.locale %>
                 <%= f.submit I18n.t("tag.search"), class: "btn btn-outline-light mx-3" %>
               <% end %>
@@ -41,6 +42,7 @@
               <%= form_with url: notes_path, method: :get, class: "d-flex" do |f| %>
                 <%= f.text_field :keyword, placeholder: I18n.t("note.search"), class: "form-control" %>
                 <%= f.hidden_field :note_search, value: "true" %>
+                <%# ロケール保持パラメータ %>
                 <%= f.hidden_field :lang, value: I18n.locale %>
                 <%= f.submit I18n.t("note.search"), class: "btn btn-outline-light mx-3" %>
               <% end %>
