@@ -12,7 +12,7 @@
         <%= f.label :name_cont, I18n.t("user.name"), class: "h5 text-center" %>
         <%= f.search_field :name_cont, class: "form-control w-50" %>
         <%# ロケール保持パラメータ %>
-        <%= f.hidden_field :lang, value: I18n.locale %>
+        <%= hidden_field_tag :lang, I18n.locale %>
         <%# ユーザー検索 %>
         <%= f.submit I18n.t("user.search"), class: "btn btn-success" %>
       <% end %>
