@@ -1,6 +1,6 @@
 class Public::UsersController < ApplicationController
   before_action :ensure_guest_user, only: [:edit]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, unless: :admin_signed_in?
   
   def show
     # ユーザー情報

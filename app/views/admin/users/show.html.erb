@@ -7,7 +7,28 @@
       <div class="shadow-lg p-1 shadow-lg rounded">
         <%= image_tag @user.get_image(80, 80), size: "80x80", class: "d-block mx-auto border" %>
         <p class="text-center"><%= @user.name %></p>
-          <%= link_to I18n.t("user.edit"), edit_admin_user_path(@user.name), class: "btn btn-secondary btn-sm d-block mx-auto" %>
+        
+        <%# フォロー機能 %>
+        <div class="d-flex justify-content-around border-top m-1">
+          <div>
+            <%= link_to following_user_path(@user.name), remote: true, class: "text-dark" do %>
+              <%# フォロー一覧 %>
+              <p class="m-0"><%= I18n.t("user.following") %></p>
+              <p id="following" class="m-0 text-center"><%= @user.following.count %></p>
+            <% end %>
+          </div>
+          <div>
+            <%= link_to followers_user_path(@user.name), remote: true, class: "text-dark" do %>
+              <%# フォロワー一覧 %>
+              <p class="m-0"><%= I18n.t("user.followers") %></p>
+              <p id="followers" class="m-0 text-center"><%= @user.followers.count %></p>
+            <% end %>
+          </div>
+        </div>
+      
+        <%# プロフィール編集ボタン %>
+        <%= link_to I18n.t("user.edit"), edit_admin_user_path(@user.name), class: "btn btn-secondary btn-sm d-block mx-auto" %>
+      
       </div>
       
       <%# 投稿機能 %>

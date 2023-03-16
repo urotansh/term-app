@@ -29,21 +29,27 @@
         </td>
         <td><%= user.name %></td>
         <td>
-          <%# フォロー/フォロー解除ボタン %>
-          <div class="follow-btn-<%= user.name %>">
-            <%# 他ユーザーのマイページの場合は、フォロー/フォロー解除ボタンを表示する %>
-            <% if current_user != user %>
-              <%# ユーザーをフォローしている場合は、フォロー解除ボタンを表示する %>
-              <% if current_user.following?(user) %>
-                <%# フォロー解除 %>
-                <%= link_to I18n.t("user.unfollow"), user_relationships_path(user.name), method: :delete, remote: true, class: "btn btn-outline-secondary btn-sm d-block mx-auto" %>
-              <%# ユーザーをフォローしてない場合は、フォローするボタンを表示する %>
-              <% else %>
-                <%# フォローする %>
-                <%= link_to I18n.t("user.follow"), user_relationships_path(user.name), method: :post, remote: true, class: "btn btn-secondary btn-sm d-block mx-auto" %>
+          <%# 管理者ユーザーでログイン中の場合 %>
+          <% if admin_signed_in? %>
+            <%# フォロー/フォロー解除ボタンは表示しない %>
+          <%# 管理者ユーザーでログインしていない場合 %>
+          <% else %>
+            <%# フォロー/フォロー解除ボタン %>
+            <div class="follow-btn-<%= user.name %>">
+              <%# 他ユーザーのマイページの場合 %>
+              <% if current_user != user %>
+                <%# ユーザーをフォローしている場合 %>
+                <% if current_user.following?(user) %>
+                  <%# フォロー解除ボタン %>
+                  <%= link_to I18n.t("user.unfollow"), user_relationships_path(user.name), method: :delete, remote: true, class: "btn btn-outline-secondary btn-sm d-block mx-auto" %>
+                <%# ユーザーをフォローしていない場合 %>
+                <% else %>
+                  <%# フォローするボタン %>
+                  <%= link_to I18n.t("user.follow"), user_relationships_path(user.name), method: :post, remote: true, class: "btn btn-secondary btn-sm d-block mx-auto" %>
+                <% end %>
               <% end %>
-            <% end %>
-          </div>
+            </div>
+          <% end %>
         </td>
       </tr>
     <% end %>
