@@ -41,7 +41,7 @@
             <% if current_user.following?(@user) %>
               <%# フォロー解除ボタン %>
               <%= link_to I18n.t("user.unfollow"), user_relationships_path(@user.name), method: :delete, remote: true, class: "btn btn-outline-secondary btn-sm d-block mx-auto" %>
-            <%# ユーザーをフォローしてない場合 %>
+            <%# ユーザーをフォローしていない場合 %>
             <% else %>
               <%# フォローするボタン %>
               <%= link_to I18n.t("user.follow"), user_relationships_path(@user.name), method: :post, remote: true, class: "btn btn-secondary btn-sm d-block mx-auto" %>

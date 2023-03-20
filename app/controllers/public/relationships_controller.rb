@@ -1,5 +1,4 @@
 class Public::RelationshipsController < ApplicationController
-  
   before_action :set_user, only: [:create, :destroy]
   before_action :set_path_param_name, only: [:create, :destroy]
   
