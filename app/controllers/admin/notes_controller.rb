@@ -1,4 +1,6 @@
 class Admin::NotesController < ApplicationController
+  before_action :authenticate_admin!
+  
   def index
     # TODO:DRY
     if params[:favorite]

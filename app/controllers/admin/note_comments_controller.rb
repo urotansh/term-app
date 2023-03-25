@@ -1,4 +1,5 @@
 class Admin::NoteCommentsController < ApplicationController
+  before_action :authenticate_admin!
   before_action :set_note, only: [:destroy, :index]
   
   def destroy
