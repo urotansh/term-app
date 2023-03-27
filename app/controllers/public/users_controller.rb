@@ -6,6 +6,12 @@ class Public::UsersController < ApplicationController
     # ユーザー情報
     @user = User.find_by(name: params[:name])
     
+    # ユーザー情報がnilの場合は、マイページへリダイレクトする
+    if @user.nil?
+      redirect_to user_path(name: current_user.name), alert: params[:name] + "は存在しません。"
+      return
+    end
+    
     # ユーザー投稿一覧(サイドメニュー)
     @notes = @user.notes
     @favorite_notes = @user.favorite_notes
