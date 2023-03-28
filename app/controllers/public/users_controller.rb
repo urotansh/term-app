@@ -8,7 +8,7 @@ class Public::UsersController < ApplicationController
     
     # ユーザー情報がnilの場合は、マイページへリダイレクトする
     if @user.nil?
-      redirect_to user_path(name: current_user.name), alert: params[:name] + "は存在しません。"
+      redirect_to user_path(name: current_user.name), alert: I18n.t("user.alert.does_not_exist", name: params[:name])
       return
     end
     

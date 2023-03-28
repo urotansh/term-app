@@ -267,6 +267,8 @@ ja:
       update: "プロフィールを更新しました。"
       withdraw: "退会処理が完了しました。"
       ensure_guest_user: "ゲストユーザーはプロフィール編集画面へ遷移できません。"
+    alert:
+      does_not_exist: "%{name} は存在しません。"
   tag:
     search: "タグ検索"
   home:
