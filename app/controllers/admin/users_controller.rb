@@ -25,6 +25,12 @@ class Admin::UsersController < ApplicationController
     # ユーザー情報
     @user = User.find_by(name: params[:name])
     
+    # ユーザー情報がnilの場合は、ユーザー一覧ページへリダイレクトする
+    if @user.nil?
+      redirect_to admin_users_path, alert: I18n.t("user.alert.does_not_exist", name: params[:name])
+      return
+    end
+    
     # ユーザー投稿一覧(サイドメニュー)
     @notes = @user.notes
     @favorite_notes = @user.favorite_notes
