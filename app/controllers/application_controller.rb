@@ -26,8 +26,14 @@ class ApplicationController < ActionController::Base
   private
   
   def switch_locale(&action)
-    locale = params[:lang] || I18n.default_locale
+    locale = available_locale(params[:lang]) || I18n.default_locale
     I18n.with_locale(locale, &action)
+  end
+  
+  # ロケールがavailable_localesに含まれているか確認し、結果に応じて locale または nil を返す
+  # presence_in: 引数の配列の中に値が存在する場合、それ自身を返す
+  def available_locale(lang)
+    lang.to_sym.presence_in(I18n::available_locales) || nil
   end
   
   def default_url_options
